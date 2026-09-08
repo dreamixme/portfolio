@@ -34,3 +34,6 @@ next-env.d.ts
 # IDE
 .idea/
 .vscode/
+
+# package manager lockfile (kept local by project convention)
+/yarn.lock

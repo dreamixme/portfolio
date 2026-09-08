@@ -1,15 +1,7 @@
 'use client';
 
 import { zodResolver } from '@hookform/resolvers/zod';
-import {
-  Alert,
-  Button,
-  Divider,
-  Paper,
-  Stack,
-  TextField,
-  Typography,
-} from '@mui/material';
+import { Alert, Button, Divider, Paper, Stack, TextField, Typography } from '@mui/material';
 import { Controller, useForm } from 'react-hook-form';
 import { useState } from 'react';
 
@@ -62,9 +54,7 @@ export function StarterDemo() {
     <Paper variant="outlined" sx={{ p: { xs: 2, md: 3 } }}>
       <Stack spacing={3}>
         <Stack spacing={0.5}>
-          <Typography variant="h5" fontWeight={800}>
-            Integration smoke test
-          </Typography>
+          <Typography variant="subtitle2">Integration smoke test</Typography>
           <Typography color="text.secondary">
             This disposable feature demonstrates RHF + Zod, Zustand and the shared Axios client.
           </Typography>
@@ -98,7 +88,7 @@ export function StarterDemo() {
             )}
           />
 
-          <Stack direction={{ xs: 'column', sm: 'row' }} gap={1.5}>
+          <Stack direction={{ xs: 'column', sm: 'row' }} spacing={1.5}>
             <Button type="submit" variant="contained" disabled={isSubmitting}>
               Validate form
             </Button>
@@ -112,7 +102,11 @@ export function StarterDemo() {
 
         <Stack spacing={1}>
           <Typography variant="body2">Zustand submit count: {submitCount}</Typography>
-          {apiStatus && <Alert severity={apiStatus.startsWith('API ok') ? 'success' : 'error'}>{apiStatus}</Alert>}
+          {apiStatus && (
+            <Alert severity={apiStatus.startsWith('API ok') ? 'success' : 'error'}>
+              {apiStatus}
+            </Alert>
+          )}
         </Stack>
       </Stack>
     </Paper>

@@ -5,8 +5,8 @@ import AppLink from '@/components/common/AppLink';
 export default function NotFound() {
   return (
     <Container maxWidth="sm" sx={{ py: 12 }}>
-      <Stack spacing={2} alignItems="flex-start">
-        <Typography variant="h2" fontWeight={800}>
+      <Stack spacing={2} sx={{ alignItems: 'flex-start' }}>
+        <Typography variant="h2" component="h1" sx={{ fontWeight: 800 }}>
           404
         </Typography>
         <Typography variant="h5">Page not found</Typography>

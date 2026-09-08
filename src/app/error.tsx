@@ -16,8 +16,8 @@ export default function ErrorPage({
 
   return (
     <Container maxWidth="sm" sx={{ py: 12 }}>
-      <Stack spacing={2} alignItems="flex-start">
-        <Typography variant="h3" fontWeight={800}>
+      <Stack spacing={2} sx={{ alignItems: 'flex-start' }}>
+        <Typography variant="h3" component="h1" sx={{ fontWeight: 800 }}>
           Something went wrong
         </Typography>
         <Typography color="text.secondary">

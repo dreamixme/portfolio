@@ -21,19 +21,20 @@ actually needs them.
 
 ## Install
 
-```bash
-npm install
-npm run dev
-```
-
-or:
+This repository uses Yarn Classic. The local `yarn.lock` is ignored by project convention.
 
 ```bash
-yarn
+yarn install
 yarn dev
 ```
 
 Copy `.env.example` to `.env.local` when you need environment overrides.
+Set `NEXT_PUBLIC_SITE_URL` to the final HTTPS domain before deployment so canonical URLs,
+the sitemap and social previews point to production.
+
+## SEO
+
+The App Router exposes metadata, `robots.txt`, `sitemap.xml` and a generated Open Graph image.
 
 ## Quality checks
 
@@ -43,6 +44,12 @@ npm run lint
 npm run format:check
 npm run build
 ```
+
+`typecheck` generates Next.js route types first, so it also works before the first build.
+Run `npm run check` for all three quality checks together.
+
+ESLint is pinned to 9.39.5 because the installed React lint plugin does not support ESLint 10.
+Upgrade it once the plugin supports the newer rule API.
 
 `next lint` is intentionally not used; Next.js 16 removed that command. ESLint runs directly.
 
