@@ -1,15 +1,11 @@
-import { Box, CircularProgress } from '@mui/material';
+import { CircularProgress } from '@mui/material';
+
+import { LoadingRoot } from '@/components/layout/StatusPage/styled';
 
 export default function Loading() {
   return (
-    <Box
-      sx={{
-        minHeight: '60vh',
-        display: 'grid',
-        placeItems: 'center',
-      }}
-    >
-      <CircularProgress aria-label="Loading" />
-    </Box>
+    <LoadingRoot>
+      <CircularProgress aria-label="در حال بارگذاری" />
+    </LoadingRoot>
   );
 }

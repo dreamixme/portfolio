@@ -1,7 +1,10 @@
 'use client';
 
-import { Button, Container, Stack, Typography } from '@mui/material';
+import { Typography } from '@mui/material';
 import { useEffect } from 'react';
+
+import MuiButton from '@/components/Shared/MuiButton';
+import { StatusContainer, StatusContent, StatusTitle } from '@/components/layout/StatusPage/styled';
 
 export default function ErrorPage({
   error,
@@ -15,18 +18,14 @@ export default function ErrorPage({
   }, [error]);
 
   return (
-    <Container maxWidth="sm" sx={{ py: 12 }}>
-      <Stack spacing={2} sx={{ alignItems: 'flex-start' }}>
-        <Typography variant="h3" component="h1" sx={{ fontWeight: 800 }}>
-          Something went wrong
-        </Typography>
+    <StatusContainer maxWidth="sm">
+      <StatusContent>
+        <StatusTitle>مشکلی پیش آمد</StatusTitle>
         <Typography color="text.secondary">
-          An unexpected error occurred. You can retry this route without refreshing the whole app.
+          هنگام نمایش این بخش خطایی رخ داد. می‌توانید بدون بارگذاری دوباره‌ی کل سایت تلاش کنید.
         </Typography>
-        <Button onClick={reset} variant="contained">
-          Try again
-        </Button>
-      </Stack>
-    </Container>
+        <MuiButton onClick={reset} text="تلاش دوباره" />
+      </StatusContent>
+    </StatusContainer>
   );
 }

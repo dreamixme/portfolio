@@ -1,22 +1,19 @@
-import { Button, Container, Stack, Typography } from '@mui/material';
+import { Typography } from '@mui/material';
 
-import AppLink from '@/components/common/AppLink';
+import MuiButton from '@/components/Shared/MuiButton';
+import { StatusContainer, StatusContent, StatusTitle } from '@/components/layout/StatusPage/styled';
 
 export default function NotFound() {
   return (
-    <Container maxWidth="sm" sx={{ py: 12 }}>
-      <Stack spacing={2} sx={{ alignItems: 'flex-start' }}>
-        <Typography variant="h2" component="h1" sx={{ fontWeight: 800 }}>
-          404
-        </Typography>
-        <Typography variant="h5">Page not found</Typography>
+    <StatusContainer maxWidth="sm">
+      <StatusContent>
+        <StatusTitle>404</StatusTitle>
+        <Typography variant="h5">صفحه پیدا نشد</Typography>
         <Typography color="text.secondary">
-          The page you requested does not exist or has been moved.
+          صفحه‌ای که می‌خواهید وجود ندارد یا منتقل شده است.
         </Typography>
-        <Button component={AppLink} href="/" variant="contained">
-          Back home
-        </Button>
-      </Stack>
-    </Container>
+        <MuiButton href="/" text="بازگشت به خانه" />
+      </StatusContent>
+    </StatusContainer>
   );
 }

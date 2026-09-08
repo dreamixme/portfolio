@@ -1,22 +1,49 @@
-:root {
-  color-scheme: light;
+@font-face {
+  font-family: 'Yekan Bakh';
+  src:
+    url('/fonts/woff2/YekanBakh-FaNum-Regular.woff2') format('woff2'),
+    url('/fonts/woff/YekanBakh-FaNum-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
 }
 
 * {
   box-sizing: border-box;
 }
 
-html,
-body {
-  margin: 0;
+html {
   min-height: 100%;
+  scroll-behavior: smooth;
+  scroll-padding-top: 92px;
 }
 
 body {
   min-height: 100vh;
+  min-height: 100dvh;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  font-family: 'Yekan Bakh', Arial, sans-serif;
 }
 
 a {
-  color: inherit;
   text-decoration: none;
+}
+
+a:not(.MuiButton-root) {
+  color: inherit;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
 }

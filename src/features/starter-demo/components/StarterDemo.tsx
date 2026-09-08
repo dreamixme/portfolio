@@ -1,10 +1,12 @@
 'use client';
 
 import { zodResolver } from '@hookform/resolvers/zod';
-import { Alert, Button, Divider, Paper, Stack, TextField, Typography } from '@mui/material';
+import { Alert, Divider, Stack, Typography } from '@mui/material';
 import { Controller, useForm } from 'react-hook-form';
 import { useState } from 'react';
 
+import MuiButton from '@/components/Shared/MuiButton';
+import MuiInput from '@/components/Shared/MuiInput';
 import { getHealth } from '@/features/starter-demo/api/getHealth';
 import {
   contactSchema,
@@ -12,6 +14,8 @@ import {
 } from '@/features/starter-demo/schemas/contactSchema';
 import { useDemoStore } from '@/features/starter-demo/store/useDemoStore';
 import { getApiErrorMessage } from '@/services/http/errors';
+
+import { DemoPaper } from './styled';
 
 export function StarterDemo() {
   const submitCount = useDemoStore((state) => state.submitCount);
@@ -51,7 +55,7 @@ export function StarterDemo() {
   };
 
   return (
-    <Paper variant="outlined" sx={{ p: { xs: 2, md: 3 } }}>
+    <DemoPaper variant="outlined">
       <Stack spacing={3}>
         <Stack spacing={0.5}>
           <Typography variant="subtitle2">Integration smoke test</Typography>
@@ -65,11 +69,15 @@ export function StarterDemo() {
             control={control}
             name="name"
             render={({ field, fieldState }) => (
-              <TextField
-                {...field}
+              <MuiInput.Base
+                value={field.value}
+                onChange={field.onChange}
+                onBlur={field.onBlur}
                 label="Name"
                 error={fieldState.invalid}
                 helperText={fieldState.error?.message}
+                noMarginBottom
+                textFieldProps={{ name: field.name, inputRef: field.ref }}
               />
             )}
           />
@@ -78,23 +86,28 @@ export function StarterDemo() {
             control={control}
             name="email"
             render={({ field, fieldState }) => (
-              <TextField
-                {...field}
+              <MuiInput.Base
+                value={field.value}
+                onChange={field.onChange}
+                onBlur={field.onBlur}
                 label="Email"
-                type="email"
                 error={fieldState.invalid}
                 helperText={fieldState.error?.message}
+                noMarginBottom
+                textFieldProps={{ name: field.name, type: 'email', inputRef: field.ref }}
               />
             )}
           />
 
           <Stack direction={{ xs: 'column', sm: 'row' }} spacing={1.5}>
-            <Button type="submit" variant="contained" disabled={isSubmitting}>
-              Validate form
-            </Button>
-            <Button type="button" variant="outlined" onClick={checkApi} loading={checkingApi}>
-              Check API route
-            </Button>
+            <MuiButton type="submit" text="Validate form" disabled={isSubmitting} />
+            <MuiButton
+              type="button"
+              variant="outlined"
+              text="Check API route"
+              onClick={checkApi}
+              loading={checkingApi}
+            />
           </Stack>
         </Stack>
 
@@ -109,6 +122,6 @@ export function StarterDemo() {
           )}
         </Stack>
       </Stack>
-    </Paper>
+    </DemoPaper>
   );
 }

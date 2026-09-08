@@ -1,10 +1,13 @@
 import type { Metadata, Viewport } from 'next';
+import InitColorSchemeScript from '@mui/material/InitColorSchemeScript';
 
 import '@/app/globals.css';
+import 'react-toastify/dist/ReactToastify.css';
+import { SiteFooter } from '@/components/layout/SiteFooter';
+import { SiteHeader } from '@/components/layout/SiteHeader';
 import { PersonJsonLd } from '@/components/seo/PersonJsonLd';
 import { siteConfig } from '@/config/site';
-import { AppProviders } from '@/providers/AppProviders';
-import { AppRouterCacheProvider } from '@mui/material-nextjs/v16-appRouter';
+import { ThemeProvider } from '@/providers/ThemeProviders';
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
@@ -24,12 +27,18 @@ export const metadata: Metadata = {
     'Frontend Developer',
     'Next.js Developer',
     'Portfolio',
+    'توسعه‌دهنده وب',
+    'مهندس نرم‌افزار',
+    'پورتفولیو برنامه‌نویس',
   ],
   alternates: {
     canonical: '/',
   },
   icons: {
-    icon: [{ url: '/icon-48x48.png', sizes: '48x48', type: 'image/png' }],
+    icon: [
+      { url: '/peyman-logo.svg', type: 'image/svg+xml' },
+      { url: '/icon-48x48.png', sizes: '48x48', type: 'image/png' },
+    ],
   },
   openGraph: {
     type: 'website',
@@ -56,19 +65,32 @@ export const viewport: Viewport = {
   width: 'device-width',
   initialScale: 1,
   viewportFit: 'cover',
-  themeColor: siteConfig.themeColor,
+  themeColor: [
+    { media: '(prefers-color-scheme: light)', color: '#F6F8FC' },
+    { media: '(prefers-color-scheme: dark)', color: '#0B1020' },
+  ],
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang={siteConfig.language}>
+    <html lang={siteConfig.language} dir="rtl" suppressHydrationWarning>
+      <head>
+        <link
+          rel="preload"
+          href="/fonts/woff2/YekanBakh-FaNum-Regular.woff2"
+          as="font"
+          type="font/woff2"
+          crossOrigin="anonymous"
+        />
+      </head>
       <body>
-        <AppRouterCacheProvider options={{ enableCssLayer: true }}>
-          <AppProviders>
-            <PersonJsonLd />
-            {children}
-          </AppProviders>
-        </AppRouterCacheProvider>
+        <InitColorSchemeScript attribute="data" defaultMode="system" />
+        <ThemeProvider>
+          <PersonJsonLd />
+          <SiteHeader />
+          {children}
+          <SiteFooter />
+        </ThemeProvider>
       </body>
     </html>
   );

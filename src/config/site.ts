@@ -4,9 +4,8 @@ export const siteConfig = {
   name: 'Peyman',
   title: 'Peyman | Software Engineer',
   description:
-    'Personal portfolio of Peyman, a software engineer building fast, accessible and polished web experiences.',
+    'پورتفولیوی پیمان؛ مهندس نرم‌افزار و توسعه‌دهنده وب با تمرکز بر تجربه‌های سریع و دقیق.',
   url: env.NEXT_PUBLIC_SITE_URL,
-  locale: 'en_US',
-  language: 'en',
-  themeColor: '#2563EB',
+  locale: 'fa_IR',
+  language: 'fa',
 } as const;

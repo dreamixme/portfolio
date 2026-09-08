@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024">
+  <title>Peyman code logo</title>
+  <desc>A geometric letter P with a code symbol cut into its negative space.</desc>
+  <defs>
+    <linearGradient id="brand-gradient" x1="142" y1="82" x2="780" y2="940" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0B5CFF"/>
+      <stop offset="0.52" stop-color="#4451E8"/>
+      <stop offset="1" stop-color="#7C3AED"/>
+    </linearGradient>
+    <mask id="code-cutout" x="0" y="0" width="1024" height="1024" maskUnits="userSpaceOnUse">
+      <rect width="1024" height="1024" fill="#fff"/>
+      <g
+        fill="none"
+        stroke="#000"
+        stroke-width="64"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <path d="m467 288-105 123 105 123"/>
+        <path d="m565 274-74 274"/>
+        <path d="m613 288 105 123-105 123"/>
+      </g>
+    </mask>
+  </defs>
+  <path
+    fill="url(#brand-gradient)"
+    mask="url(#code-cutout)"
+    d="M164 80h391c198 0 349 144 349 331S753 742 555 742H405v154c0 53-43 96-96 96H164V80Z"
+  />
+</svg>
