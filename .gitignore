@@ -37,3 +37,6 @@ next-env.d.ts
 
 # package manager lockfile (kept local by project convention)
 /yarn.lock
+
+.tmp
+/tmp

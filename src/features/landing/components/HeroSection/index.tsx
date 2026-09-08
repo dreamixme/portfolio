@@ -72,10 +72,6 @@ const codeLines: CodeToken[][] = [
     { text: '  stack:', tone: 'property' },
     { text: " ['React', 'Next.js', 'TypeScript'],", tone: 'string' },
   ],
-  [
-    { text: '  domains:', tone: 'property' },
-    { text: " ['Fintech', 'Telecom'],", tone: 'string' },
-  ],
   [{ text: '};', tone: 'plain' }],
   [{ text: '// turn ideas into reliable products', tone: 'comment' }],
   [
@@ -121,7 +117,7 @@ function useLoopingTypewriter() {
           ? 650
           : state.phase === 'deleting'
             ? 12
-            : 24;
+            : 50;
 
     const timeout = window.setTimeout(() => {
       setState((current) => {
@@ -217,11 +213,7 @@ export function HeroSection() {
       <HeroContainer maxWidth="xl">
         <HeroLayout>
           <HeroContent>
-            <HeroBadge
-              label="Senior Frontend Engineer • 8+ سال تجربه"
-              variant="outlined"
-              color="primary"
-            />
+            <HeroBadge label="  8+ سال تجربه" variant="outlined" color="primary" />
             <HeroTitle>
               من پیمان حسینی‌ام؛ <HeroTitleAccent>ایده‌ها را به محصول</HeroTitleAccent> تبدیل
               می‌کنم.

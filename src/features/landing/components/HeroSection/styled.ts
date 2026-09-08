@@ -25,6 +25,37 @@ const statusPulse = keyframes`
   70%, 100% { box-shadow: 0 0 0 8px rgb(18 183 106 / 0%); }
 `;
 
+const heroItemEnter = keyframes`
+  from {
+    opacity: 0;
+    filter: blur(8px);
+    transform: translate3d(0, 28px, 0);
+  }
+  to {
+    opacity: 1;
+    filter: blur(0);
+    transform: translate3d(0, 0, 0);
+  }
+`;
+
+const heroVisualEnter = keyframes`
+  from {
+    opacity: 0;
+    filter: blur(10px);
+    transform: translate3d(var(--hero-enter-x), 30px, 0) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    filter: blur(0);
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+`;
+
+const backdropEnter = keyframes`
+  from { opacity: 0; }
+  to { opacity: 1; }
+`;
+
 export const HeroRoot = styled('section')(({ theme }) => ({
   position: 'relative',
   minHeight: 'calc(100svh - 86px)',
@@ -68,6 +99,11 @@ export const CodeBackdrop = styled('div')({
   inset: 0,
   overflow: 'hidden',
   pointerEvents: 'none',
+  animation: `${backdropEnter} 1.1s ease-out both`,
+
+  '@media (prefers-reduced-motion: reduce)': {
+    animation: 'none',
+  },
 });
 
 export const CodeGlyph = styled('span')(({ theme }) => ({
@@ -187,9 +223,27 @@ export const HeroContent = styled('div')(({ theme }) => ({
   gap: theme.spacing(3),
   textAlign: 'center',
 
+  '& > *': {
+    opacity: 0,
+    animation: `${heroItemEnter} 760ms cubic-bezier(0.16, 1, 0.3, 1) forwards`,
+  },
+
+  '& > :nth-child(1)': { animationDelay: '80ms' },
+  '& > :nth-child(2)': { animationDelay: '160ms' },
+  '& > :nth-child(3)': { animationDelay: '240ms' },
+  '& > :nth-child(4)': { animationDelay: '320ms' },
+  '& > :nth-child(5)': { animationDelay: '400ms' },
+
   [theme.breakpoints.up('md')]: {
     alignItems: 'flex-start',
     textAlign: 'start',
+  },
+
+  '@media (prefers-reduced-motion: reduce)': {
+    '& > *': {
+      opacity: 1,
+      animation: 'none',
+    },
   },
 }));
 
@@ -282,6 +336,7 @@ export const HeroStatusDot = styled('span')({
 });
 
 export const CodeStage = styled('div')(({ theme }) => ({
+  '--hero-enter-x': '0px',
   position: 'relative',
   width: '100%',
   maxWidth: 610,
@@ -290,9 +345,15 @@ export const CodeStage = styled('div')(({ theme }) => ({
   display: 'grid',
   placeItems: 'center',
   direction: 'ltr',
+  animation: `${heroVisualEnter} 920ms cubic-bezier(0.16, 1, 0.3, 1) 220ms both`,
 
   [theme.breakpoints.up('md')]: {
+    '--hero-enter-x': '-52px',
     minHeight: 480,
+  },
+
+  '@media (prefers-reduced-motion: reduce)': {
+    animation: 'none',
   },
 }));
 

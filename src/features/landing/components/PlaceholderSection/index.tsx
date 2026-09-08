@@ -1,3 +1,5 @@
+import { ScrollReveal, type RevealVariant } from '@/components/common/ScrollReveal';
+
 import {
   SectionCard,
   SectionContainer,
@@ -13,6 +15,7 @@ interface PlaceholderSectionProps {
   title: string;
   sectionNumber: string;
   alternate?: boolean;
+  revealVariant?: RevealVariant;
 }
 
 export function PlaceholderSection({
@@ -21,18 +24,21 @@ export function PlaceholderSection({
   title,
   sectionNumber,
   alternate = false,
+  revealVariant = alternate ? 'start' : 'end',
 }: PlaceholderSectionProps) {
   return (
     <SectionRoot id={id} alternate={alternate}>
       <SectionContainer maxWidth="lg">
-        <SectionCard sectionNumber={sectionNumber}>
-          <SectionEyebrow variant="overline">{eyebrow}</SectionEyebrow>
-          <SectionTitle>{title}</SectionTitle>
-          <SectionDescription>
-            محتوای اصلی این سکشن در مرحله بعد با اطلاعات واقعی، طراحی اختصاصی و انیمیشن‌های متناسب
-            تکمیل می‌شود.
-          </SectionDescription>
-        </SectionCard>
+        <ScrollReveal variant={revealVariant}>
+          <SectionCard sectionNumber={sectionNumber}>
+            <SectionEyebrow variant="overline">{eyebrow}</SectionEyebrow>
+            <SectionTitle>{title}</SectionTitle>
+            <SectionDescription>
+              محتوای اصلی این سکشن در مرحله بعد با اطلاعات واقعی، طراحی اختصاصی و انیمیشن‌های متناسب
+              تکمیل می‌شود.
+            </SectionDescription>
+          </SectionCard>
+        </ScrollReveal>
       </SectionContainer>
     </SectionRoot>
   );
