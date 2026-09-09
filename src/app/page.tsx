@@ -14,9 +14,9 @@ export default function HomePage() {
     <LandingMain>
       <HeroSection />
       <StatsSection />
+      <SkillsSection />
       <AboutSection />
       <ServicesSection />
-      <SkillsSection />
       <ExperienceSection />
       <ProjectsSection />
       <EducationSection />

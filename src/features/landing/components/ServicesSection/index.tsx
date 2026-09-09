@@ -6,7 +6,7 @@ export function ServicesSection() {
       id="services"
       eyebrow="چه کمکی می‌کنم"
       title="خدمات و حوزه‌های فعالیت"
-      sectionNumber="03"
+      sectionNumber="04"
       alternate
     />
   );
