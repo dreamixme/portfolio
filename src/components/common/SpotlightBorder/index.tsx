@@ -98,7 +98,6 @@ export function SpotlightBorder({
   return (
     <SpotlightBorderRoot
       asElement={asElement}
-      data-spotlight-element={typeof asElement === 'string' ? asElement : 'custom'}
       ref={rootRef}
       tone={tone}
       onPointerCancel={handlePointerCancel}

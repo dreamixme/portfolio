@@ -8,4 +8,13 @@ export const siteConfig = {
   url: env.NEXT_PUBLIC_SITE_URL,
   locale: 'fa_IR',
   language: 'fa',
+  contact: {
+    email: 'dreamixme@gmail.com',
+    phone: {
+      display: '+98 904 422 4818',
+      value: '+989044224818',
+    },
+    location: 'تهران، ایران',
+    linkedIn: 'https://www.linkedin.com/in/peyman-hosseini-511b2bb2',
+  },
 } as const;

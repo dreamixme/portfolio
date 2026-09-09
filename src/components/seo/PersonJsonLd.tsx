@@ -8,6 +8,14 @@ export function PersonJsonLd() {
     url: siteConfig.url,
     jobTitle: 'Software Engineer',
     description: siteConfig.description,
+    email: siteConfig.contact.email,
+    telephone: siteConfig.contact.phone.value,
+    address: {
+      '@type': 'PostalAddress',
+      addressLocality: 'Tehran',
+      addressCountry: 'IR',
+    },
+    sameAs: [siteConfig.contact.linkedIn],
   };
 
   return (
