@@ -32,6 +32,12 @@ export function ScrollReveal({
       return;
     }
 
+    if (typeof IntersectionObserver === 'undefined') {
+      const animationFrame = requestAnimationFrame(() => setIsVisible(true));
+
+      return () => cancelAnimationFrame(animationFrame);
+    }
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (!entry.isIntersecting) {

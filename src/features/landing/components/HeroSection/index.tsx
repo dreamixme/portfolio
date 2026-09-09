@@ -116,7 +116,7 @@ function useLoopingTypewriter() {
         : state.phase === 'waiting'
           ? 650
           : state.phase === 'deleting'
-            ? 12
+            ? 15
             : 50;
 
     const timeout = window.setTimeout(() => {
@@ -219,8 +219,9 @@ export function HeroSection() {
               می‌کنم.
             </HeroTitle>
             <HeroDescription>
-              توسعه‌دهنده‌ی ارشد فرانت‌اند با تجربه‌ی ساخت محصولات وب و موبایل در حوزه‌های مالی و
-              مخابرات؛ با تمرکز روی React، Next.js، TypeScript و رابط‌های سریع و واکنش‌گرا.
+              توسعه‌دهنده‌ی ارشد فرانت‌اند با تجربه‌ی ساخت محصولات وب و موبایل در حوزه‌های مالی، فین
+              تک و مخابرات؛ با تمرکز روی React، React Native، Next.js، TypeScript و رابط‌های سریع و
+              واکنش‌گرا.
             </HeroDescription>
             <HeroActions>
               <HeroActionButton
