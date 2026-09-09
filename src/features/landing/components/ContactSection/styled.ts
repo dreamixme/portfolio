@@ -1,9 +1,5 @@
-'use client';
-
 import { Container, Typography } from '@mui/material';
 import { keyframes, styled } from '@mui/material/styles';
-
-import { SpotlightBorder } from '@/components/common/SpotlightBorder';
 
 type ContactTone = 'primary' | 'secondary' | 'purple';
 
@@ -31,10 +27,6 @@ export const ContactRoot = styled('section')(({ theme }) => ({
     position: 'absolute',
     zIndex: -2,
     inset: 0,
-    backgroundImage:
-      'linear-gradient(rgb(6 72 251 / 2.2%) 1px, transparent 1px), linear-gradient(90deg, rgb(6 72 251 / 2.2%) 1px, transparent 1px)',
-    backgroundSize: '52px 52px',
-    maskImage: 'linear-gradient(to bottom, transparent, black 16%, black 84%, transparent)',
   },
 
   '&::after': {
@@ -52,8 +44,8 @@ export const ContactRoot = styled('section')(({ theme }) => ({
   },
 
   [theme.breakpoints.up('md')]: {
-    paddingTop: theme.spacing(13),
-    paddingBottom: theme.spacing(14),
+    paddingTop: theme.spacing(8),
+    paddingBottom: theme.spacing(10),
   },
 }));
 
@@ -69,28 +61,6 @@ export const ContactHeader = styled('div')(({ theme }) => ({
 
   [theme.breakpoints.up('md')]: {
     marginBottom: theme.spacing(7),
-  },
-}));
-
-export const ContactEyebrow = styled('span')(({ theme }) => ({
-  display: 'inline-flex',
-  alignItems: 'center',
-  gap: theme.spacing(0.75),
-  minHeight: 34,
-  paddingInline: theme.spacing(1.5),
-  border: `1px solid rgba(${theme.vars.palette.primary.mainChannel} / 0.2)`,
-  borderRadius: 999,
-  color: theme.vars.palette.primary.main,
-  backgroundColor: `rgba(${theme.vars.palette.primary.mainChannel} / 0.07)`,
-  fontFamily: 'ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace',
-  fontSize: '0.72rem',
-  fontWeight: 800,
-  letterSpacing: '0.04em',
-  direction: 'ltr',
-
-  '&::before': {
-    content: '"08"',
-    color: theme.vars.palette.secondary.main,
   },
 }));
 
@@ -117,7 +87,7 @@ export const ContactTitleAccent = styled('span')({
 });
 
 export const ContactLead = styled(Typography)(({ theme }) => ({
-  maxWidth: 680,
+  maxWidth: 690,
   marginInline: 'auto',
   color: theme.vars.palette.text.secondary,
 }));
@@ -128,7 +98,7 @@ export const ContactCardFrame = styled('div')({
   marginInline: 'auto',
 });
 
-export const ContactInfoPanel = styled(SpotlightBorder)(({ theme }) => ({
+export const ContactInfoPanel = styled('div')(({ theme }) => ({
   position: 'relative',
   isolation: 'isolate',
   overflow: 'hidden',

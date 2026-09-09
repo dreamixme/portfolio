@@ -18,7 +18,6 @@ import {
   ContactCardHeader,
   ContactCodeStamp,
   ContactContainer,
-  ContactEyebrow,
   ContactHeader,
   ContactInfoDescription,
   ContactInfoPanel,
@@ -80,7 +79,6 @@ export function ContactSection() {
       <ContactContainer maxWidth="xl">
         <ScrollReveal variant="up">
           <ContactHeader>
-            <ContactEyebrow>LET&apos;S TALK</ContactEyebrow>
             <ContactTitle>
               ایده‌ای داری؟ <ContactTitleAccent>بیایید درباره‌اش حرف بزنیم.</ContactTitleAccent>
             </ContactTitle>
@@ -93,7 +91,7 @@ export function ContactSection() {
 
         <ContactCardFrame>
           <ScrollReveal variant="scale" delay={120}>
-            <ContactInfoPanel tone="secondary">
+            <ContactInfoPanel>
               <ContactCardHeader>
                 <div>
                   <AvailabilityBadge>
