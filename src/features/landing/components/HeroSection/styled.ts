@@ -4,6 +4,7 @@ import { Chip, Container, Typography } from '@mui/material';
 import { keyframes, styled } from '@mui/material/styles';
 
 import MuiButton from '@/components/Shared/MuiButton';
+import { SpotlightBorder } from '@/components/common/SpotlightBorder';
 
 const float = keyframes`
   0%, 100% { transform: translate3d(0, 0, 0) rotate(var(--glyph-rotate, 0deg)); }
@@ -357,7 +358,7 @@ export const CodeStage = styled('div')(({ theme }) => ({
   },
 }));
 
-export const CodeWindow = styled('div')(({ theme }) => ({
+export const CodeWindow = styled(SpotlightBorder)(({ theme }) => ({
   position: 'relative',
   zIndex: 1,
   width: '100%',

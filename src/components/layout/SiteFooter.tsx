@@ -89,13 +89,9 @@ export function SiteFooter() {
 
           <FooterBottom>
             <Typography variant="caption" color="text.secondary">
-              © {new Date().getFullYear()} پیمان. تمامی حقوق محفوظ است.
+              © {new Date().getFullYear()} تمامی حقوق محفوظ است.
             </Typography>
-            <FooterCredit variant="caption">
-              طراحی و توسعه با
-              <CodeRoundedIcon fontSize="inherit" aria-hidden="true" />
-              Next.js
-            </FooterCredit>
+            <FooterCredit variant="caption">طراحی و توسعه با Next.js</FooterCredit>
           </FooterBottom>
         </FooterGlassPanel>
       </FooterContainer>

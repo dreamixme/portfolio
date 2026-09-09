@@ -62,7 +62,7 @@ const codeLines: CodeToken[][] = [
   ],
   [
     { text: '  role:', tone: 'property' },
-    { text: " 'Senior Frontend Engineer',", tone: 'string' },
+    { text: " 'Frontend Engineer',", tone: 'string' },
   ],
   [
     { text: '  experience:', tone: 'property' },
@@ -70,7 +70,7 @@ const codeLines: CodeToken[][] = [
   ],
   [
     { text: '  stack:', tone: 'property' },
-    { text: " ['React', 'Next.js', 'TypeScript'],", tone: 'string' },
+    { text: " ['React','React Native', 'Next.js', 'TypeScript'],", tone: 'string' },
   ],
   [{ text: '};', tone: 'plain' }],
   [{ text: '// turn ideas into reliable products', tone: 'comment' }],
@@ -117,7 +117,7 @@ function useLoopingTypewriter() {
           ? 650
           : state.phase === 'deleting'
             ? 15
-            : 50;
+            : 45;
 
     const timeout = window.setTimeout(() => {
       setState((current) => {
@@ -252,7 +252,7 @@ export function HeroSection() {
             </CodeOrbit>
             <FloatingCodeTag aria-hidden="true">&lt;Portfolio /&gt;</FloatingCodeTag>
 
-            <CodeWindow>
+            <CodeWindow tone="primary">
               <CodeWindowHeader>
                 <WindowDots aria-hidden="true">
                   <WindowDot />

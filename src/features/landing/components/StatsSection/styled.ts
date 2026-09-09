@@ -3,6 +3,8 @@
 import { Container, Typography } from '@mui/material';
 import { styled } from '@mui/material/styles';
 
+import { SpotlightBorder } from '@/components/common/SpotlightBorder';
+
 type StatAccent = 'primary' | 'secondary' | 'success' | 'purple';
 
 interface RevealProps {
@@ -285,7 +287,7 @@ export const StatsCardsGrid = styled('div')(({ theme }) => ({
   },
 }));
 
-export const StatCard = styled('article', {
+export const StatCard = styled(SpotlightBorder, {
   shouldForwardProp: (prop) => prop !== 'accent' && prop !== 'isVisible' && prop !== 'revealDelay',
 })<StatCardProps>(({ accent, isVisible, revealDelay, theme }) => {
   const accentColor =
@@ -331,12 +333,6 @@ export const StatCard = styled('article', {
       borderRadius: 999,
       backgroundColor: accentColor,
       boxShadow: `0 0 20px ${accentColor}`,
-    },
-
-    '&:hover': {
-      borderColor: `rgba(${theme.vars.palette.primary.mainChannel} / 0.26)`,
-      boxShadow: `0 24px 58px rgba(${theme.vars.palette.primary.mainChannel} / 0.12)`,
-      transform: isVisible ? 'translateY(-5px)' : undefined,
     },
 
     ...theme.applyStyles('dark', {

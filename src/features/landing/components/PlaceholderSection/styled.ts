@@ -3,6 +3,8 @@
 import { Container, Typography } from '@mui/material';
 import { styled } from '@mui/material/styles';
 
+import { SpotlightBorder } from '@/components/common/SpotlightBorder';
+
 export const SectionRoot = styled('section', {
   shouldForwardProp: (prop) => prop !== 'alternate',
 })<{ alternate: boolean }>(({ alternate, theme }) => ({
@@ -23,7 +25,7 @@ export const SectionRoot = styled('section', {
 
 export const SectionContainer = styled(Container)({});
 
-export const SectionCard = styled('div', {
+export const SectionCard = styled(SpotlightBorder, {
   shouldForwardProp: (prop) => prop !== 'sectionNumber',
 })<{ sectionNumber: string }>(({ sectionNumber, theme }) => ({
   position: 'relative',

@@ -30,7 +30,7 @@ export function PlaceholderSection({
     <SectionRoot id={id} alternate={alternate}>
       <SectionContainer maxWidth="lg">
         <ScrollReveal variant={revealVariant}>
-          <SectionCard sectionNumber={sectionNumber}>
+          <SectionCard tone="primary" sectionNumber={sectionNumber}>
             <SectionEyebrow variant="overline">{eyebrow}</SectionEyebrow>
             <SectionTitle>{title}</SectionTitle>
             <SectionDescription>

@@ -3,6 +3,8 @@
 import { Container, Typography } from '@mui/material';
 import { styled } from '@mui/material/styles';
 
+import { SpotlightBorder } from '@/components/common/SpotlightBorder';
+
 type SkillAccent = 'primary' | 'secondary';
 
 interface RevealProps {
@@ -143,7 +145,7 @@ export const SkillsGrid = styled('div')(({ theme }) => ({
   },
 }));
 
-export const SkillPanel = styled('article', {
+export const SkillPanel = styled(SpotlightBorder, {
   shouldForwardProp: (prop) => prop !== 'accent' && prop !== 'isVisible' && prop !== 'revealDelay',
 })<SkillPanelProps>(({ accent, isVisible, revealDelay, theme }) => {
   const accentColor = getAccentColor(accent);

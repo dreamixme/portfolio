@@ -211,6 +211,8 @@ export function StatsSection() {
               return (
                 <StatCard
                   key={stat.label}
+                  asElement="article"
+                  tone={stat.accent}
                   accent={stat.accent}
                   isVisible={hasEnteredViewport}
                   revealDelay={180 + index * 90}

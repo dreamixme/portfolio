@@ -168,6 +168,8 @@ export function SkillsSection() {
           {skillGroups.map((group, groupIndex) => (
             <SkillPanel
               key={group.title}
+              asElement="article"
+              tone={group.accent}
               accent={group.accent}
               isVisible={hasEnteredViewport}
               revealDelay={120 + groupIndex * 130}
