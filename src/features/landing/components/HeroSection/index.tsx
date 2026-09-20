@@ -213,7 +213,7 @@ export function HeroSection() {
       <HeroContainer maxWidth="xl">
         <HeroLayout>
           <HeroContent>
-            <HeroBadge label="  8+ سال تجربه" variant="outlined" color="primary" />
+            <HeroBadge label="بیش از ۸ سال تجربه" variant="outlined" color="primary" />
             <HeroTitle>
               من پیمان حسینی‌ام؛ <HeroTitleAccent>ایده‌ها را به محصول</HeroTitleAccent> تبدیل
               می‌کنم.

@@ -42,7 +42,7 @@ export function SiteHeader() {
     <HeaderRoot>
       <HeaderContainer maxWidth="xl">
         <HeaderInner>
-          <HeaderBrandLink href="#hero" aria-label="صفحه اصلی پیمان">
+          <HeaderBrandLink href="/#hero" aria-label="صفحه اصلی پیمان">
             <HeaderLogoFrame>
               <Image src="/peyman-logo.svg" alt="" width={34} height={34} priority />
             </HeaderLogoFrame>
@@ -75,7 +75,7 @@ export function SiteHeader() {
               {isDark ? <LightModeRoundedIcon /> : <DarkModeRoundedIcon />}
             </ThemeToggleButton>
 
-            <HeaderCallToAction href="#contact" text="شروع همکاری" size="small" />
+            <HeaderCallToAction href="/#contact" text="شروع همکاری" size="small" />
 
             <MobileMenuButton label="بازکردن منو" onClick={() => setMobileMenuOpen(true)}>
               <MenuRoundedIcon />
@@ -98,7 +98,7 @@ export function SiteHeader() {
               {item.label}
             </MobileNavigationButton>
           ))}
-          <MobileCallToAction href="#contact" text="شروع همکاری" onClick={closeMobileMenu} />
+          <MobileCallToAction href="/#contact" text="شروع همکاری" onClick={closeMobileMenu} />
         </MobileNavigation>
       </MuiDrawer>
     </HeaderRoot>

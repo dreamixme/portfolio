@@ -1,5 +1,7 @@
 'use client';
 
+import type { HTMLAttributeAnchorTarget } from 'react';
+
 import type { ButtonProps } from '@mui/material';
 
 import {
@@ -14,6 +16,8 @@ import {
 export interface MuiButtonProps extends ButtonProps {
   text?: string;
   loading?: boolean;
+  target?: HTMLAttributeAnchorTarget;
+  rel?: string;
 }
 
 const MuiButton = (props: MuiButtonProps) => {

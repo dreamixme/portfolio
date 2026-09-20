@@ -73,7 +73,7 @@ export const HeroRoot = styled('section')(({ theme }) => ({
     inset: 0,
     backgroundImage:
       'linear-gradient(rgb(6 72 251 / 5%) 1px, transparent 1px), linear-gradient(90deg, rgb(6 72 251 / 5%) 1px, transparent 1px)',
-    backgroundSize: '42px 42px',
+    backgroundSize: '30px 30px',
     maskImage: 'linear-gradient(to bottom, black, transparent 92%)',
   },
 
@@ -320,7 +320,7 @@ export const HeroStatus = styled('div')(({ theme }) => ({
   alignItems: 'center',
   gap: theme.spacing(1),
   color: theme.vars.palette.text.secondary,
-  fontSize: theme.typography.caption.fontSize,
+  fontSize: theme.typography.subtitle2.fontSize,
 }));
 
 export const HeroStatusDot = styled('span')({

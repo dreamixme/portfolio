@@ -169,7 +169,6 @@ export const AvailabilityDot = styled('span')({
 });
 
 export const ContactInfoTitle = styled('h3')(({ theme }) => ({
-  maxWidth: 620,
   marginTop: theme.spacing(3),
   marginBottom: theme.spacing(1.5),
   color: '#FFFFFF',
@@ -179,7 +178,7 @@ export const ContactInfoTitle = styled('h3')(({ theme }) => ({
   textWrap: 'balance',
 
   [theme.breakpoints.up('sm')]: {
-    fontSize: '2.55rem',
+    fontSize: '2.125rem',
   },
 }));
 

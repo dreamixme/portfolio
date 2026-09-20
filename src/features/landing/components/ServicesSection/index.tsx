@@ -1,6 +1,5 @@
 import AccountTreeRoundedIcon from '@mui/icons-material/AccountTreeRounded';
 import ApiRoundedIcon from '@mui/icons-material/ApiRounded';
-import ArrowOutwardRoundedIcon from '@mui/icons-material/ArrowOutwardRounded';
 import CodeRoundedIcon from '@mui/icons-material/CodeRounded';
 import PhoneIphoneRoundedIcon from '@mui/icons-material/PhoneIphoneRounded';
 
@@ -50,10 +49,7 @@ import {
   ServiceDescription,
   ServiceIcon,
   ServiceNumber,
-  ServicesActionButton,
-  ServicesAside,
   ServicesContainer,
-  ServicesEyebrow,
   ServicesGrid,
   ServicesHeader,
   ServicesHeaderContent,
@@ -95,23 +91,11 @@ export function ServicesSection() {
         <ScrollReveal variant="up">
           <ServicesHeader>
             <ServicesHeaderContent>
-              <ServicesEyebrow>SERVICES</ServicesEyebrow>
               <ServicesTitle>
                 از یک مسئله‌ی واقعی تا{' '}
                 <ServicesTitleAccent>محصولی قابل استفاده.</ServicesTitleAccent>
               </ServicesTitle>
             </ServicesHeaderContent>
-            <ServicesAside>
-              <ServiceDescription>
-                تجربه‌ی فنی و محصولی برای ساخت، بازطراحی و توسعه‌ی رابط‌هایی که سریع، واکنش‌گرا و
-                آماده‌ی رشد باشند.
-              </ServiceDescription>
-              <ServicesActionButton
-                href="#contact"
-                text="شروع یک همکاری"
-                endIcon={<ArrowOutwardRoundedIcon />}
-              />
-            </ServicesAside>
           </ServicesHeader>
         </ScrollReveal>
 

@@ -16,7 +16,6 @@ import {
   DegreeMetaItem,
   DegreeTitle,
   EducationContainer,
-  EducationEyebrow,
   EducationHeader,
   EducationRoot,
   EducationTitle,
@@ -31,7 +30,6 @@ import {
   ScoreCaption,
   ScoreGauge,
   ScoreGaugeCore,
-  ScoreLabel,
   ScorePanel,
   ScoreValue,
   TimelineContent,
@@ -53,7 +51,6 @@ export function EducationSection() {
       <EducationContainer maxWidth="xl">
         <ScrollReveal variant="up">
           <EducationHeader>
-            <EducationEyebrow>ACADEMIC PATH</EducationEyebrow>
             <EducationTitle>
               پایه‌ی دانشگاهی؛ <EducationTitleAccent>شروع یک مسیر مداوم.</EducationTitleAccent>
             </EducationTitle>
@@ -113,10 +110,9 @@ export function EducationSection() {
                 >
                   <ScoreGaugeCore>
                     <ScoreValue dir="ltr">۱۶٫۳۷</ScoreValue>
-                    <ScoreLabel>از ۲۰</ScoreLabel>
+                    <ScoreCaption>معدل کل دوره</ScoreCaption>
                   </ScoreGaugeCore>
                 </ScoreGauge>
-                <ScoreCaption>معدل کل دوره</ScoreCaption>
               </ScorePanel>
             </AcademicCardBody>
 

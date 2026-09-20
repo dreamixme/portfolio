@@ -82,7 +82,8 @@ export const StatsContainer = styled(Container)({
 export const StatsHeader = styled('div', {
   shouldForwardProp: (prop) => prop !== 'isVisible',
 })<RevealProps>(({ isVisible, theme }) => ({
-  maxWidth: 720,
+  maxWidth: '100%',
+  margin: '0 auto',
   marginBottom: theme.spacing(5),
   ...revealTransition(isVisible),
 
@@ -94,10 +95,10 @@ export const StatsHeader = styled('div', {
 export const StatsTitle = styled('h2')(({ theme }) => ({
   marginTop: theme.spacing(2),
   marginBottom: theme.spacing(1.5),
-  maxWidth: 680,
   fontSize: '2rem',
   fontWeight: 900,
   lineHeight: 1.35,
+  textAlign: 'center',
   letterSpacing: '-0.025em',
   textWrap: 'balance',
 
@@ -115,7 +116,8 @@ export const StatsTitleAccent = styled('span')({
 });
 
 export const StatsDescription = styled(Typography)(({ theme }) => ({
-  maxWidth: 650,
+  maxWidth: '100%',
+  textAlign: 'center',
   color: theme.vars.palette.text.secondary,
 }));
 
@@ -226,7 +228,7 @@ export const MainMetricSuffix = styled('sup')(({ theme }) => ({
   color: '#FDBA74',
   fontSize: '2rem',
   fontWeight: 900,
-  lineHeight: 1,
+  lineHeight: 2,
 
   [theme.breakpoints.up('sm')]: {
     fontSize: '2.5rem',
@@ -273,7 +275,7 @@ export const MainMetricMetaItem = styled('span')(({ theme }) => ({
   borderRadius: 999,
   color: 'rgb(255 255 255 / 82%)',
   backgroundColor: 'rgb(255 255 255 / 8%)',
-  fontSize: theme.typography.caption.fontSize,
+  fontSize: theme.typography.subtitle2.fontSize,
   backdropFilter: 'blur(10px)',
 }));
 
@@ -411,7 +413,7 @@ export const StatCardSuffix = styled('sup')(({ theme }) => ({
 export const StatCardLabel = styled('h3')(({ theme }) => ({
   marginTop: theme.spacing(1.25),
   marginBottom: theme.spacing(0.25),
-  fontSize: '1rem',
+  fontSize: '1.25rem',
   fontWeight: 800,
 }));
 

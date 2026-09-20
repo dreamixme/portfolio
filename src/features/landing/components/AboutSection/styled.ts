@@ -154,15 +154,6 @@ export const StoryCard = styled(SpotlightBorder)(({ theme }) => ({
   },
 }));
 
-export const StoryFileBar = styled('div')(({ theme }) => ({
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'space-between',
-  gap: theme.spacing(2),
-  paddingBottom: theme.spacing(2.5),
-  borderBottom: `1px dashed ${theme.vars.palette.divider}`,
-}));
-
 export const FileBadge = styled('span')(({ theme }) => ({
   minWidth: 0,
   display: 'inline-flex',
@@ -176,26 +167,6 @@ export const FileBadge = styled('span')(({ theme }) => ({
   '& svg': {
     color: theme.vars.palette.primary.main,
     fontSize: 18,
-  },
-}));
-
-export const FileStatus = styled('span')(({ theme }) => ({
-  display: 'inline-flex',
-  alignItems: 'center',
-  gap: theme.spacing(0.75),
-  color: theme.vars.palette.text.secondary,
-  fontFamily: 'ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace',
-  fontSize: '0.62rem',
-  fontWeight: 700,
-  letterSpacing: '0.06em',
-  direction: 'ltr',
-
-  '& > span': {
-    width: 7,
-    height: 7,
-    borderRadius: '50%',
-    backgroundColor: theme.vars.palette.success.main,
-    boxShadow: `0 0 12px rgba(${theme.vars.palette.success.mainChannel} / 0.48)`,
   },
 }));
 
@@ -258,11 +229,11 @@ export const StoryClosing = styled('div')(({ theme }) => ({
 
 export const StorySignature = styled('span')(({ theme }) => ({
   color: theme.vars.palette.primary.main,
-  fontFamily: 'Georgia, Times New Roman, serif',
+  fontFamily: 'Arial, Georgia, Times New Roman, serif',
   fontSize: '1.5rem',
   fontStyle: 'italic',
   lineHeight: 1,
-  transform: 'rotate(-4deg)',
+  // transform: 'rotate(-4deg)',
 }));
 
 export const StorySignatureLine = styled('span')(({ theme }) => ({
@@ -309,7 +280,7 @@ export const ProfileCard = styled(SpotlightBorder)(({ theme }) => ({
     inset: 0,
     backgroundImage:
       'linear-gradient(rgb(255 255 255 / 4%) 1px, transparent 1px), linear-gradient(90deg, rgb(255 255 255 / 4%) 1px, transparent 1px)',
-    backgroundSize: '42px 42px',
+    backgroundSize: '30px 30px',
     maskImage: 'radial-gradient(circle at 50% 48%, black, transparent 72%)',
   },
 
@@ -418,7 +389,7 @@ export const ProfileMonogram = styled('span')({
   display: 'grid',
   placeItems: 'center',
   border: '1px solid rgb(255 255 255 / 18%)',
-  borderRadius: 44,
+  borderRadius: 999,
   color: '#FFFFFF',
   background:
     'linear-gradient(145deg, rgb(255 255 255 / 16%), rgb(255 255 255 / 6%)), linear-gradient(145deg, #0648FB, #7C3AED)',

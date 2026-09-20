@@ -164,10 +164,10 @@ export function StatsSection() {
       <StatsContainer maxWidth="xl">
         <StatsHeader isVisible={hasEnteredViewport}>
           <StatsTitle>
-            تجربه‌ای که با <StatsTitleAccent>عددهای واقعی</StatsTitleAccent> دیده می‌شود.
+            تجربه‌ای با <StatsTitleAccent>عددهای واقعی</StatsTitleAccent>
           </StatsTitle>
           <StatsDescription>
-            پشت هر عدد، یک مسیر واقعی از حل مسئله، همکاری تیمی و ساخت محصول برای کاربران قرار دارد.
+            پشت هر عدد، یک مسیر واقعی از حل مسئله، همکاری تیمی و ساخت محصول قرار دارد.
           </StatsDescription>
         </StatsHeader>
 

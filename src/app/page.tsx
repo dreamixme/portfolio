@@ -1,7 +1,6 @@
 import { AboutSection } from '@/features/landing/components/AboutSection';
 import { ContactSection } from '@/features/landing/components/ContactSection';
 import { EducationSection } from '@/features/landing/components/EducationSection';
-import { ExperienceSection } from '@/features/landing/components/ExperienceSection';
 import { HeroSection } from '@/features/landing/components/HeroSection';
 import { ProjectsSection } from '@/features/landing/components/ProjectsSection';
 import { ServicesSection } from '@/features/landing/components/ServicesSection';
@@ -15,10 +14,9 @@ export default function HomePage() {
       <HeroSection />
       <StatsSection />
       <SkillsSection />
+      <ProjectsSection />
       <AboutSection />
       <ServicesSection />
-      <ExperienceSection />
-      <ProjectsSection />
       <EducationSection />
       <ContactSection />
     </LandingMain>

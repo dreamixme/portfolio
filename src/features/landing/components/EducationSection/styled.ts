@@ -390,7 +390,9 @@ export const ScoreGauge = styled('div')(({ theme }) => ({
 export const ScoreGaugeCore = styled('span')({
   position: 'relative',
   zIndex: 1,
-  display: 'grid',
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'center',
   justifyItems: 'center',
 });
 
@@ -411,7 +413,6 @@ export const ScoreLabel = styled('span')(({ theme }) => ({
 }));
 
 export const ScoreCaption = styled('strong')(({ theme }) => ({
-  marginTop: theme.spacing(2),
   color: theme.vars.palette.text.primary,
   fontSize: '0.9rem',
   fontWeight: 800,

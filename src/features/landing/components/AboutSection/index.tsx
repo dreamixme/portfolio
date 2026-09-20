@@ -3,7 +3,6 @@ import DevicesRoundedIcon from '@mui/icons-material/DevicesRounded';
 import LocationOnRoundedIcon from '@mui/icons-material/LocationOnRounded';
 import PsychologyRoundedIcon from '@mui/icons-material/PsychologyRounded';
 import TaskAltRoundedIcon from '@mui/icons-material/TaskAltRounded';
-import TerminalRoundedIcon from '@mui/icons-material/TerminalRounded';
 import TrendingUpRoundedIcon from '@mui/icons-material/TrendingUpRounded';
 
 import { ScrollReveal } from '@/components/common/ScrollReveal';
@@ -16,8 +15,6 @@ import {
   AboutRoot,
   AboutTitle,
   AboutTitleAccent,
-  FileBadge,
-  FileStatus,
   PrincipleContent,
   PrincipleIcon,
   PrincipleItem,
@@ -42,7 +39,6 @@ import {
   ProfileTop,
   StoryCard,
   StoryClosing,
-  StoryFileBar,
   StoryParagraph,
   StoryQuote,
   StoryQuoteMark,
@@ -92,17 +88,6 @@ export function AboutSection() {
         <AboutGrid>
           <ScrollReveal variant="start">
             <StoryCard asElement="article" tone="primary">
-              <StoryFileBar>
-                <FileBadge dir="ltr">
-                  <TerminalRoundedIcon aria-hidden="true" />
-                  about-me.md
-                </FileBadge>
-                <FileStatus>
-                  <span aria-hidden="true" />
-                  OPEN TO IDEAS
-                </FileStatus>
-              </StoryFileBar>
-
               <StoryQuote>
                 <StoryQuoteMark aria-hidden="true">“</StoryQuoteMark>
                 چالش را به یک مسئله‌ی قابل حل تبدیل می‌کنم؛ بعد تا رسیدن به جواب رهایش نمی‌کنم.

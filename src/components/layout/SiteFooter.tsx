@@ -70,12 +70,12 @@ export function SiteFooter() {
             <FooterCallToAction>
               <Typography variant="subtitle2">آماده‌ی یک همکاری تازه‌ام</Typography>
               <FooterPrimaryButton
-                href="#contact"
+                href="/#contact"
                 text="بیایید گفتگو کنیم"
                 endIcon={<CodeRoundedIcon />}
               />
               <FooterBackButton
-                href="#hero"
+                href="/#hero"
                 variant="text"
                 color="inherit"
                 startIcon={<ArrowUpwardRoundedIcon />}

@@ -80,7 +80,7 @@ export function ContactSection() {
         <ScrollReveal variant="up">
           <ContactHeader>
             <ContactTitle>
-              ایده‌ای داری؟ <ContactTitleAccent>بیایید درباره‌اش حرف بزنیم.</ContactTitleAccent>
+              ایده‌ای داری؟ <ContactTitleAccent>بیا درباره‌اش حرف بزنیم.</ContactTitleAccent>
             </ContactTitle>
             <ContactLead>
               برای همکاری روی محصول تازه، توسعه‌ی رابط کاربری یا بهبود یک تجربه‌ی موجود، از یکی از
