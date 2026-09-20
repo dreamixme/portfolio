@@ -35,6 +35,7 @@
 ### Task 1: Produce and verify a serverless static export
 
 **Files:**
+
 - Create: `scripts/verify-static-export.mjs`
 - Create: `package-lock.json`
 - Modify: `package.json`
@@ -42,6 +43,7 @@
 - Delete: `src/app/api/health/route.ts`
 
 **Interfaces:**
+
 - Consumes: `npm run build`, the six slugs in `src/features/projects/data/projects.ts`, and static metadata routes under `src/app`.
 - Produces: `npm run verify:export` and a validated `out/` directory for Task 2.
 
@@ -52,14 +54,7 @@ Create `scripts/verify-static-export.mjs`:
 ```js
 import { access } from 'node:fs/promises';
 
-const projectSlugs = [
-  'ewano-pwa',
-  'mci-pwa',
-  'my-tci',
-  'tabarestan',
-  'alovilaa',
-  'baham-tech',
-];
+const projectSlugs = ['ewano-pwa', 'mci-pwa', 'my-tci', 'tabarestan', 'alovilaa', 'baham-tech'];
 
 const requiredPaths = [
   'out/index.html',
@@ -166,11 +161,13 @@ git commit -m "build: enable verified static export"
 ### Task 2: Add guarded GitHub Actions CI and FTPS deployment
 
 **Files:**
+
 - Create: `scripts/verify-ci-workflow.mjs`
 - Create: `.github/workflows/ci-deploy.yml`
 - Modify: `package.json`
 
 **Interfaces:**
+
 - Consumes: `npm run check`, `npm run build`, and `npm run verify:export` from Task 1.
 - Produces: `npm run verify:workflow` and the master-only CI/deployment workflow consumed by Task 3 documentation.
 
@@ -190,10 +187,7 @@ const requiredPatterns = [
   [/workflow_dispatch:/, 'manual trigger'],
   [/permissions:\s*\n\s*contents:\s*read/m, 'read-only repository permission'],
   [/cancel-in-progress:\s*false/, 'non-interruptible deployment concurrency'],
-  [
-    /uses:\s*actions\/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1/,
-    'pinned checkout action',
-  ],
+  [/uses:\s*actions\/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1/, 'pinned checkout action'],
   [
     /uses:\s*actions\/setup-node@820762786026740c76f36085b0efc47a31fe5020/,
     'pinned setup-node action',
@@ -360,9 +354,11 @@ git commit -m "ci: deploy static site over FTPS"
 ### Task 3: Document repository setup and perform release verification
 
 **Files:**
+
 - Create: `docs/deployment.md`
 
 **Interfaces:**
+
 - Consumes: the `FTP_SERVER`, `FTP_USERNAME`, and `FTP_PASSWORD` secret names and `Validate and deploy` check name from Task 2.
 - Produces: exact GitHub repository setup instructions and a repeatable release checklist for the repository owner.
 
@@ -379,11 +375,11 @@ Create `docs/deployment.md` with these sections and exact values:
 
 در مخزن GitHub وارد `Settings > Secrets and variables > Actions` شوید و با گزینه `New repository secret` این سه Secret را بسازید:
 
-| Secret | Value |
-| --- | --- |
-| `FTP_SERVER` | `ftp.tabarestanco.ir` |
+| Secret         | Value                             |
+| -------------- | --------------------------------- |
+| `FTP_SERVER`   | `ftp.tabarestanco.ir`             |
 | `FTP_USERNAME` | `deploy-peyman@peymanhosseini.ir` |
-| `FTP_PASSWORD` | رمز حساب FTP ساخته‌شده در cPanel |
+| `FTP_PASSWORD` | رمز حساب FTP ساخته‌شده در cPanel  |
 
 رمز FTP را در فایل، Issue، Pull Request یا لاگ قرار ندهید.
 
