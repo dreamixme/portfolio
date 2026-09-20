@@ -6,6 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "verify:export": "node scripts/verify-static-export.mjs",
+    "verify:workflow": "node scripts/verify-ci-workflow.mjs",
     "start": "next start",
     "typecheck": "next typegen && tsc --noEmit",
     "lint": "eslint .",

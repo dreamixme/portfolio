@@ -1,0 +1,202 @@
+name: CI/CD
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: production-${{ github.ref }}
+  cancel-in-progress: false
+
+env:
+  NEXT_PUBLIC_SITE_URL: https://peymanhosseini.ir
+
+jobs:
+  verify:
+    name: Lint and build
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - name: Set up Node.js
+        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: 24
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Verify workflow policy
+        run: npm run verify:workflow
+
+      - name: Run quality checks
+        run: npm run check
+
+      - name: Build static site
+        run: npm run build
+
+      - name: Verify static output
+        run: npm run verify:export
+
+      - name: Upload production artifact
+        if: github.event_name != 'pull_request' && github.ref == 'refs/heads/master'
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: static-site
+          path: out
+          if-no-files-found: error
+          retention-days: 7
+
+  deploy:
+    name: Deploy to production
+    needs:
+      - verify
+
+    if: >
+      github.event_name != 'pull_request' &&
+      github.ref == 'refs/heads/master'
+
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    environment:
+      name: production
+      url: https://peymanhosseini.ir
+
+    env:
+      FTP_HOST: ${{ vars.FTP_HOST }}
+      FTP_PORT: ${{ vars.FTP_PORT }}
+      FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
+      FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
+
+    steps:
+      - name: Download production artifact
+        uses: actions/download-artifact@37930b1c2abaa49bbe596cd826c3c89aef350131 # v7.0.0
+        with:
+          name: static-site
+          path: out
+
+      - name: Validate deployment configuration
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -n "$FTP_HOST"
+          test -n "$FTP_PORT"
+          test -n "$FTP_USERNAME"
+          test -n "$FTP_PASSWORD"
+
+      - name: Install lftp
+        run: |
+          sudo apt-get update
+          sudo apt-get install --yes lftp
+
+      - name: Upload static site using FTPS
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          lftp \
+            -u "$FTP_USERNAME","$FTP_PASSWORD" \
+            -p "$FTP_PORT" \
+            "$FTP_HOST" <<'LFTP'
+          set cmd:fail-exit yes
+          set net:max-retries 3
+          set net:timeout 30
+          set ftp:passive-mode true
+          set ftp:ssl-force true
+          set ftp:ssl-protect-data true
+          set ssl:verify-certificate yes
+
+          mirror \
+            --reverse \
+            --delete \
+            --verbose \
+            --parallel=4 \
+            --no-perms \
+            --exclude-glob=.well-known \
+            --exclude-glob=.well-known/** \
+            --exclude-glob=.htaccess \
+            --exclude-glob=.ftpquota \
+            --exclude-glob=.user.ini \
+            --exclude-glob=php.ini \
+            --exclude-glob=cgi-bin \
+            --exclude-glob=cgi-bin/** \
+            --exclude-glob=400.shtml \
+            --exclude-glob=401.shtml \
+            --exclude-glob=403.shtml \
+            --exclude-glob=404.shtml \
+            --exclude-glob=500.shtml \
+            out/ /
+
+          bye
+          LFTP
+
+      - name: Verify production website
+        shell: bash
+        env:
+          SITE_URL: https://peymanhosseini.ir
+        run: |
+          set -euo pipefail
+
+          for route in \
+            "/" \
+            "/projects/ewano-pwa/" \
+            "/projects/tabarestan/" \
+            "/robots.txt" \
+            "/sitemap.xml" \
+            "/opengraph-image"
+          do
+            curl \
+              --fail \
+              --silent \
+              --show-error \
+              --location \
+              --retry 5 \
+              --retry-all-errors \
+              --retry-delay 3 \
+              "${SITE_URL}${route}?deploy=${GITHUB_SHA}" \
+              --output /dev/null
+          done
+
+          mapfile -d '' static_files < <(
+            find out/_next/static -type f \
+              \( \
+                -name '*.css' -o \
+                -name '*.js' -o \
+                -name '*.woff' -o \
+                -name '*.woff2' \
+              \) \
+              -print0
+          )
+
+          if (( ${#static_files[@]} == 0 )); then
+            echo "No CSS, JavaScript, or font files were found."
+            exit 1
+          fi
+
+          for file in "${static_files[@]}"; do
+            asset_path="${file#out}"
+
+            echo "Checking ${asset_path}"
+
+            curl \
+              --fail \
+              --silent \
+              --show-error \
+              --location \
+              --retry 5 \
+              --retry-all-errors \
+              --retry-delay 3 \
+              "${SITE_URL}${asset_path}?deploy=${GITHUB_SHA}" \
+              --output /dev/null
+          done
