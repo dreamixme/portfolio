@@ -138,11 +138,12 @@ export function ProjectsSection() {
               <ProjectsTitle>
                 تجربه‌ها <ProjectsTitleAccent>و پروژه‌های من</ProjectsTitleAccent>
               </ProjectsTitle>
+
+              <ProjectsDescription>
+                ترکیبی از محصولاتی که در تیم‌های حرفه‌ای روی آن‌ها کار کرده‌ام و پروژه‌های مستقلی که
+                از ایده تا اجرا پیش برده‌ام؛ هر کارت، ورودی یک مطالعه‌ی موردی کامل است.
+              </ProjectsDescription>
             </ProjectsHeaderContent>
-            <ProjectsDescription>
-              ترکیبی از محصولاتی که در تیم‌های حرفه‌ای روی آن‌ها کار کرده‌ام و پروژه‌های مستقلی که
-              از ایده تا اجرا پیش برده‌ام؛ هر کارت، ورودی یک مطالعه‌ی موردی کامل است.
-            </ProjectsDescription>
           </ProjectsHeader>
         </ScrollReveal>
 

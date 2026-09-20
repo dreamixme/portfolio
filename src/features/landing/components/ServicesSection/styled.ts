@@ -76,46 +76,23 @@ export const ServicesContainer = styled(Container)({
 
 export const ServicesHeader = styled('div')(({ theme }) => ({
   marginBottom: theme.spacing(5),
-  display: 'grid',
-  gridTemplateColumns: 'minmax(0, 1fr)',
+  display: 'flex',
+  justifyContent: 'center',
+  textAlign: 'center',
   gap: theme.spacing(2.5),
 
   [theme.breakpoints.up('md')]: {
     marginBottom: theme.spacing(7),
-    gridTemplateColumns: 'minmax(0, 1.18fr) minmax(330px, 0.82fr)',
-    alignItems: 'end',
     gap: theme.spacing(6),
   },
 }));
 
 export const ServicesHeaderContent = styled('div')({
   minWidth: 0,
+  width: '100%',
 });
 
-export const ServicesEyebrow = styled('span')(({ theme }) => ({
-  minHeight: 34,
-  display: 'inline-flex',
-  alignItems: 'center',
-  gap: theme.spacing(0.75),
-  paddingInline: theme.spacing(1.5),
-  border: `1px solid rgba(${theme.vars.palette.primary.mainChannel} / 0.2)`,
-  borderRadius: 999,
-  color: theme.vars.palette.primary.main,
-  backgroundColor: `rgba(${theme.vars.palette.primary.mainChannel} / 0.07)`,
-  fontFamily: 'ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace',
-  fontSize: '0.72rem',
-  fontWeight: 800,
-  letterSpacing: '0.04em',
-  direction: 'ltr',
-
-  '&::before': {
-    content: '"04"',
-    color: theme.vars.palette.secondary.main,
-  },
-}));
-
 export const ServicesTitle = styled('h2')(({ theme }) => ({
-  maxWidth: 760,
   marginTop: theme.spacing(2),
   marginBottom: 0,
   fontSize: '2.1rem',

@@ -60,7 +60,8 @@ export const EducationContainer = styled(Container)({
 });
 
 export const EducationHeader = styled('div')(({ theme }) => ({
-  maxWidth: 800,
+  maxWidth: '100%',
+  textAlign: 'center',
   marginBottom: theme.spacing(5),
 
   [theme.breakpoints.up('md')]: {
@@ -91,7 +92,6 @@ export const EducationEyebrow = styled('span')(({ theme }) => ({
 }));
 
 export const EducationTitle = styled('h2')(({ theme }) => ({
-  maxWidth: 760,
   marginTop: theme.spacing(2),
   marginBottom: theme.spacing(1.5),
   fontSize: '2.1rem',
@@ -114,7 +114,6 @@ export const EducationTitleAccent = styled('span')({
 });
 
 export const DegreeDescription = styled(Typography)(({ theme }) => ({
-  maxWidth: 700,
   color: theme.vars.palette.text.secondary,
 }));
 
@@ -528,7 +527,6 @@ export const TimelineYear = styled('strong')(({ theme }) => ({
   display: 'block',
   marginBottom: 3,
   color: theme.vars.palette.text.primary,
-  fontFamily: 'ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace',
   fontSize: '0.8rem',
   fontWeight: 900,
 }));

@@ -231,7 +231,7 @@ export const MainMetricSuffix = styled('sup')(({ theme }) => ({
   lineHeight: 2,
 
   [theme.breakpoints.up('sm')]: {
-    fontSize: '2.5rem',
+    fontSize: '3rem',
   },
 }));
 

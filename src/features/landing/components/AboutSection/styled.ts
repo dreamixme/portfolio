@@ -63,7 +63,8 @@ export const AboutContainer = styled(Container)({
 });
 
 export const AboutHeader = styled('div')(({ theme }) => ({
-  maxWidth: 810,
+  maxWidth: '100%',
+  textAlign: 'center',
   marginBottom: theme.spacing(5),
 
   [theme.breakpoints.up('md')]: {
@@ -72,7 +73,6 @@ export const AboutHeader = styled('div')(({ theme }) => ({
 }));
 
 export const AboutTitle = styled('h2')(({ theme }) => ({
-  maxWidth: 780,
   marginTop: theme.spacing(2),
   marginBottom: theme.spacing(1.5),
   fontSize: '2.1rem',
@@ -80,6 +80,7 @@ export const AboutTitle = styled('h2')(({ theme }) => ({
   lineHeight: 1.4,
   letterSpacing: '-0.03em',
   textWrap: 'balance',
+  padding: '0 1em',
 
   [theme.breakpoints.up('md')]: {
     fontSize: '3.2rem',
@@ -95,8 +96,8 @@ export const AboutTitleAccent = styled('span')({
 });
 
 export const AboutDescription = styled(Typography)(({ theme }) => ({
-  maxWidth: 680,
   color: theme.vars.palette.text.secondary,
+  padding: '0 1rem',
 }));
 
 export const AboutGrid = styled('div')(({ theme }) => ({

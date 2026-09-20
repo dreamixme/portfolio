@@ -64,43 +64,21 @@ export const ProjectsContainer = styled(Container)({
 
 export const ProjectsHeader = styled('div')(({ theme }) => ({
   marginBottom: theme.spacing(4),
-  display: 'grid',
-  gridTemplateColumns: 'minmax(0, 1fr)',
+  display: 'flex',
+  width: '100%',
+  alignItems: 'center',
+  justifyContent: 'center',
   gap: theme.spacing(2),
 
   [theme.breakpoints.up('md')]: {
-    marginBottom: theme.spacing(5),
-    gridTemplateColumns: 'minmax(0, 1.25fr) minmax(320px, 0.75fr)',
-    alignItems: 'end',
-    gap: theme.spacing(7),
+    gap: theme.spacing(1),
   },
 }));
 
 export const ProjectsHeaderContent = styled('div')({
   minWidth: 0,
+  textAlign: 'center',
 });
-
-export const ProjectsEyebrow = styled('span')(({ theme }) => ({
-  minHeight: 34,
-  display: 'inline-flex',
-  alignItems: 'center',
-  gap: theme.spacing(0.75),
-  paddingInline: theme.spacing(1.5),
-  border: `1px solid rgba(${theme.vars.palette.primary.mainChannel} / 0.2)`,
-  borderRadius: 999,
-  color: theme.vars.palette.primary.main,
-  backgroundColor: `rgba(${theme.vars.palette.primary.mainChannel} / 0.07)`,
-  fontFamily: 'ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace',
-  fontSize: '0.72rem',
-  fontWeight: 800,
-  letterSpacing: '0.04em',
-  direction: 'ltr',
-
-  '&::before': {
-    content: '"05 / 06"',
-    color: theme.vars.palette.secondary.main,
-  },
-}));
 
 export const ProjectsTitle = styled('h2')(({ theme }) => ({
   maxWidth: 800,
@@ -128,9 +106,9 @@ export const ProjectsTitleAccent = styled('span')({
 export const ProjectsDescription = styled('p')(({ theme }) => ({
   margin: 0,
   paddingInlineStart: theme.spacing(3),
-  borderInlineStart: `1px solid ${theme.vars.palette.divider}`,
   color: theme.vars.palette.text.secondary,
   fontSize: '0.95rem',
+  maxWidth: 640,
   lineHeight: 1.9,
 }));
 
@@ -142,7 +120,8 @@ export const CategorySwitcher = styled('div')(({ theme }) => ({
   gap: theme.spacing(0.5),
   padding: theme.spacing(0.6),
   border: `1px solid ${theme.vars.palette.divider}`,
-  borderRadius: 18,
+  borderRadius: 99,
+  margin: '0 auto',
   backgroundColor: `rgba(${theme.vars.palette.background.paperChannel} / 0.7)`,
   boxShadow: '0 14px 34px rgb(16 24 40 / 6%)',
   backdropFilter: 'blur(18px)',
@@ -157,7 +136,7 @@ export const CategoryButton = styled(MuiButton, {
 })<{ isActive: boolean }>(({ isActive, theme }) => ({
   minWidth: 190,
   gap: theme.spacing(0.75),
-  borderRadius: 13,
+  borderRadius: 99,
   color: isActive ? '#FFFFFF' : theme.vars.palette.text.secondary,
   background: isActive
     ? 'linear-gradient(115deg, var(--portfolio-palette-primary-main), #6D5DFB)'
@@ -199,6 +178,7 @@ export const ProjectRail = styled('ul')(({ theme }) => ({
   display: 'flex',
   gap: theme.spacing(2.5),
   marginBlock: 0,
+  marginTop: theme.spacing(4),
   marginInline: 'calc((100vw - 100%) / -2)',
   paddingInline: 'calc((100vw - 100%) / 2)',
   paddingBottom: theme.spacing(2),

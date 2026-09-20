@@ -339,7 +339,6 @@ export const ContactLocation = styled('div')(({ theme }) => ({
   gap: theme.spacing(1),
   borderTop: '1px solid rgb(255 255 255 / 10%)',
   color: 'rgb(255 255 255 / 60%)',
-  fontFamily: 'ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace',
   fontSize: '0.7rem',
   direction: 'ltr',
 

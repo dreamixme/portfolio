@@ -97,7 +97,8 @@ export const SkillsContainer = styled(Container)({
 export const SkillsHeader = styled('div', {
   shouldForwardProp: (prop) => prop !== 'isVisible',
 })<RevealProps>(({ isVisible, theme }) => ({
-  maxWidth: 760,
+  maxWidth: '100%',
+  textAlign: 'center',
   marginBottom: theme.spacing(5),
   ...revealTransition(isVisible),
 
@@ -108,7 +109,6 @@ export const SkillsHeader = styled('div', {
 
 export const SkillsTitle = styled('h2')(({ theme }) => ({
   margin: 0,
-  maxWidth: 720,
   fontSize: '2rem',
   fontWeight: 900,
   lineHeight: 1.4,
@@ -129,7 +129,7 @@ export const SkillsTitleAccent = styled('span')({
 });
 
 export const SkillsDescription = styled(Typography)(({ theme }) => ({
-  maxWidth: 680,
+  // maxWidth: 680,
   marginTop: theme.spacing(1.5),
   color: theme.vars.palette.text.secondary,
 }));

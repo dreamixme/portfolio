@@ -1,59 +1,107 @@
+'use client';
+
+import ArrowOutwardRoundedIcon from '@mui/icons-material/ArrowOutwardRounded';
 import ArrowUpwardRoundedIcon from '@mui/icons-material/ArrowUpwardRounded';
-import CodeRoundedIcon from '@mui/icons-material/CodeRounded';
-import { Typography } from '@mui/material';
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import LocationOnRoundedIcon from '@mui/icons-material/LocationOnRounded';
+import PhoneInTalkRoundedIcon from '@mui/icons-material/PhoneInTalkRounded';
 import Image from 'next/image';
 
+import { ScrollReveal } from '@/components/common/ScrollReveal';
 import { headerNavigation } from '@/config/navigation';
+import { siteConfig } from '@/config/site';
 
 import {
+  FooterAvailability,
   FooterBackButton,
   FooterBottom,
-  FooterBrandColumn,
   FooterBrandName,
-  FooterBrandRow,
-  FooterCallToAction,
+  FooterCodeLine,
+  FooterColumnLabel,
+  FooterContact,
+  FooterContactEmail,
+  FooterContactLink,
+  FooterContactList,
   FooterContainer,
-  FooterCredit,
+  FooterCopyright,
   FooterDescription,
-  FooterGlassPanel,
   FooterGrid,
+  FooterHeadline,
+  FooterHeadlineAccent,
+  FooterHero,
+  FooterHeroAction,
+  FooterHeroCopy,
+  FooterIdentity,
+  FooterIdentityHeader,
+  FooterLead,
   FooterLinkButton,
-  FooterLinksGrid,
-  FooterLinksTitle,
-  FooterLogoFrame,
+  FooterLinks,
+  FooterLocation,
+  FooterLogo,
+  FooterNavigation,
   FooterPrimaryButton,
+  FooterResponseNote,
   FooterRoot,
-  FooterSeparator,
 } from './SiteFooter.styled';
 
 export function SiteFooter() {
   return (
     <FooterRoot>
       <FooterContainer maxWidth="xl">
-        <FooterGlassPanel>
-          <FooterGrid>
-            <FooterBrandColumn>
-              <FooterBrandRow>
-                <FooterLogoFrame>
-                  <Image src="/peyman-logo.svg" alt="لوگوی پیمان" width={44} height={44} />
-                </FooterLogoFrame>
-                <div>
-                  <FooterBrandName variant="h6">پیمان</FooterBrandName>
-                  <Typography variant="caption" color="text.secondary">
-                    مهندس نرم‌افزار و توسعه‌دهنده وب
-                  </Typography>
-                </div>
-              </FooterBrandRow>
-              <FooterDescription>
-                این پورتفولیو قدم‌به‌قدم در حال تکمیل است؛ جایی برای نمایش تجربه‌ها، مهارت‌ها و
-                محصولاتی که با دقت ساخته شده‌اند.
-              </FooterDescription>
-            </FooterBrandColumn>
+        <ScrollReveal variant="up">
+          <FooterHero>
+            <FooterHeroCopy>
+              <FooterAvailability>
+                <span aria-hidden="true" />
+                AVAILABLE FOR SELECT PROJECTS
+              </FooterAvailability>
+              <FooterHeadline>
+                برای ساختن محصول بعدی، <FooterHeadlineAccent>آماده‌ام.</FooterHeadlineAccent>
+              </FooterHeadline>
+              <FooterLead>
+                اگر ایده‌ای داری که به طراحی دقیق، توسعه‌ی تمیز و یک تجربه‌ی کاربری قابل اتکا نیاز
+                دارد، از همین‌جا گفتگو را شروع کنیم.
+              </FooterLead>
+            </FooterHeroCopy>
 
-            <div>
-              <FooterLinksTitle variant="subtitle2">دسترسی سریع</FooterLinksTitle>
-              <FooterLinksGrid>
-                {headerNavigation.map((item) => (
+            <FooterHeroAction>
+              <FooterPrimaryButton
+                href={`mailto:${siteConfig.contact.email}`}
+                text="شروع یک گفتگو"
+                size="large"
+                endIcon={<ArrowOutwardRoundedIcon />}
+              />
+              <FooterResponseNote>معمولاً کمتر از یک روز پاسخ می‌دهم.</FooterResponseNote>
+            </FooterHeroAction>
+          </FooterHero>
+        </ScrollReveal>
+
+        <ScrollReveal variant="up" delay={100}>
+          <FooterGrid>
+            <FooterIdentity>
+              <FooterIdentityHeader>
+                <FooterLogo>
+                  <Image src="/peyman-logo.svg" alt="لوگوی پیمان" width={46} height={46} />
+                </FooterLogo>
+                <div>
+                  <FooterBrandName>پیمان حسینی</FooterBrandName>
+                  <span dir="ltr">SENIOR FRONTEND ENGINEER</span>
+                </div>
+              </FooterIdentityHeader>
+              <FooterDescription>
+                توسعه‌دهنده‌ی محصول برای وب و موبایل؛ با تمرکز روی رابط‌های سریع، مقیاس‌پذیر و
+                تجربه‌هایی که ساده و دقیق کار می‌کنند.
+              </FooterDescription>
+              <FooterLocation>
+                <LocationOnRoundedIcon aria-hidden="true" />
+                {siteConfig.contact.location}
+              </FooterLocation>
+            </FooterIdentity>
+
+            <FooterNavigation aria-label="دسترسی سریع فوتر">
+              <FooterColumnLabel dir="ltr">EXPLORE</FooterColumnLabel>
+              <FooterLinks>
+                {headerNavigation.map((item, index) => (
                   <FooterLinkButton
                     key={item.href}
                     href={item.href}
@@ -61,39 +109,54 @@ export function SiteFooter() {
                     color="inherit"
                     size="small"
                   >
+                    <small dir="ltr">{String(index + 1).padStart(2, '0')}</small>
                     {item.label}
                   </FooterLinkButton>
                 ))}
-              </FooterLinksGrid>
-            </div>
+              </FooterLinks>
+            </FooterNavigation>
 
-            <FooterCallToAction>
-              <Typography variant="subtitle2">آماده‌ی یک همکاری تازه‌ام</Typography>
-              <FooterPrimaryButton
-                href="/#contact"
-                text="بیایید گفتگو کنیم"
-                endIcon={<CodeRoundedIcon />}
-              />
-              <FooterBackButton
-                href="/#hero"
-                variant="text"
-                color="inherit"
-                startIcon={<ArrowUpwardRoundedIcon />}
-              >
-                بازگشت به بالا
-              </FooterBackButton>
-            </FooterCallToAction>
+            <FooterContact>
+              <FooterColumnLabel dir="ltr">LET&apos;S CONNECT</FooterColumnLabel>
+              <FooterContactEmail href={`mailto:${siteConfig.contact.email}`} dir="ltr">
+                {siteConfig.contact.email}
+                <ArrowOutwardRoundedIcon aria-hidden="true" />
+              </FooterContactEmail>
+              <FooterContactList>
+                <FooterContactLink href={`tel:${siteConfig.contact.phone.value}`} dir="ltr">
+                  <PhoneInTalkRoundedIcon aria-hidden="true" />
+                  {siteConfig.contact.phone.display}
+                </FooterContactLink>
+                <FooterContactLink
+                  href={siteConfig.contact.linkedIn}
+                  target="_blank"
+                  rel="noreferrer"
+                  dir="ltr"
+                >
+                  <LinkedInIcon aria-hidden="true" />
+                  LinkedIn
+                </FooterContactLink>
+              </FooterContactList>
+            </FooterContact>
           </FooterGrid>
+        </ScrollReveal>
 
-          <FooterSeparator />
-
-          <FooterBottom>
-            <Typography variant="caption" color="text.secondary">
-              © {new Date().getFullYear()} تمامی حقوق محفوظ است.
-            </Typography>
-            <FooterCredit variant="caption">طراحی و توسعه با Next.js</FooterCredit>
-          </FooterBottom>
-        </FooterGlassPanel>
+        <FooterBottom>
+          <FooterCopyright>
+            <span aria-hidden="true" />© {new Date().getFullYear()} Peyman Hosseini
+          </FooterCopyright>
+          <FooterCodeLine dir="ltr">
+            {'<footer> Designed & built with care </footer>'}
+          </FooterCodeLine>
+          <FooterBackButton
+            href="/#hero"
+            variant="text"
+            color="inherit"
+            startIcon={<ArrowUpwardRoundedIcon />}
+          >
+            بازگشت به بالا
+          </FooterBackButton>
+        </FooterBottom>
       </FooterContainer>
     </FooterRoot>
   );
