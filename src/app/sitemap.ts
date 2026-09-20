@@ -3,6 +3,8 @@ import type { MetadataRoute } from 'next';
 import { siteConfig } from '@/config/site';
 import { portfolioProjects } from '@/features/projects/data/projects';
 
+export const dynamic = 'force-static';
+
 export default function sitemap(): MetadataRoute.Sitemap {
   return [
     {
