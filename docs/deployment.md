@@ -8,10 +8,12 @@
 
 در تب `Variables` با گزینه `New repository variable` این دو مقدار را بسازید:
 
-| Variable   | Value                 |
-| ---------- | --------------------- |
-| `FTP_HOST` | `ftp.tabarestanco.ir` |
-| `FTP_PORT` | `21`                  |
+| Variable   | Value                  |
+| ---------- | ---------------------- |
+| `FTP_HOST` | `cp187.unitedhost.org` |
+| `FTP_PORT` | `21`                   |
+
+آدرس معرفی‌شده در cPanel یعنی `ftp.tabarestanco.ir` به همین سرور متصل می‌شود، اما Certificate سرویس FTPS برای `cp187.unitedhost.org` صادر شده است. استفاده از hostname بالا باعث می‌شود اعتبارسنجی TLS بدون غیرفعال‌کردن کنترل امنیتی موفق باشد.
 
 در تب `Secrets` با گزینه `New repository secret` این دو Secret را بسازید:
 
@@ -80,5 +82,5 @@
 
 - خطای خالی‌بودن تنظیمات: نام Variableها و Secretها را دقیقاً مطابق این سند بررسی کنید.
 - خطای ورود FTP: مقدار `FTP_USERNAME` و رمز حساب FTP را در cPanel دوباره بررسی کنید.
-- خطای Certificate: گواهی TLS سرور `ftp.tabarestanco.ir` باید معتبر و قابل اعتماد باشد؛ workflow اعتبارسنجی Certificate را غیرفعال نمی‌کند.
+- خطای Certificate: مقدار `FTP_HOST` باید دقیقاً `cp187.unitedhost.org` باشد؛ workflow اعتبارسنجی Certificate را غیرفعال نمی‌کند.
 - خطای بررسی آنلاین بعد از Upload: فعال‌بودن SSL و DNS دامنه را بررسی کنید؛ فایل‌ها ممکن است منتقل شده باشند اما job تا پاسخ صحیح HTTPS موفق نمی‌شود.

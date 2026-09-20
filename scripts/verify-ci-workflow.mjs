@@ -2,6 +2,7 @@ import { readFile } from 'node:fs/promises';
 
 const workflowPath = '.github/workflows/ci-deploy.yml';
 const source = await readFile(workflowPath, 'utf8');
+const deploymentGuide = await readFile('docs/deployment.md', 'utf8');
 
 const requiredPatterns = [
   [/pull_request:\s*\n\s*branches:\s*\[master\]/m, 'master pull-request trigger'],
@@ -68,6 +69,22 @@ for (const [pattern, label] of forbiddenPatterns) {
   if (pattern.test(source)) {
     failures.push(`forbidden: ${label}`);
   }
+}
+
+const requiredGuidePatterns = [
+  [/`FTP_HOST` \| `cp187\.unitedhost\.org`/, 'certificate-matching FTP host guidance'],
+  [/`FTP_PORT` \| `21`/, 'FTP port guidance'],
+  [/`FTP_USERNAME` \| `deploy-peyman@peymanhosseini\.ir`/, 'FTP username guidance'],
+];
+
+for (const [pattern, label] of requiredGuidePatterns) {
+  if (!pattern.test(deploymentGuide)) {
+    failures.push(`missing: ${label}`);
+  }
+}
+
+if (/`FTP_HOST` \| `ftp\.tabarestanco\.ir`/.test(deploymentGuide)) {
+  failures.push('forbidden: certificate-mismatched FTP host guidance');
 }
 
 if (failures.length > 0) {
