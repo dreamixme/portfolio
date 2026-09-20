@@ -1,7 +1,12 @@
 {
-  "name": "next16-mui9-boilerplate",
-  "version": "0.1.0",
+  "name": "portfolio",
+  "version": "0.1.2",
   "private": true,
+  "author": {
+    "name": "peyman hosseini",
+    "email": "dreamixme@gmail.com",
+    "url": "https://peymanhosseini.ir"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
