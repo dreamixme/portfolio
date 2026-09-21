@@ -9,7 +9,7 @@ export const projectCategoryLabels: Record<ProjectCategory, string> = {
 export const portfolioProjects: PortfolioProject[] = [
   {
     slug: 'ewano-pwa',
-    title: 'ایوانو PWA',
+    title: 'اوانو PWA',
     latinTitle: 'EWANO PWA',
     category: 'company',
     shortDescription:
@@ -67,7 +67,7 @@ export const portfolioProjects: PortfolioProject[] = [
   },
   {
     slug: 'tabarestan',
-    title: 'تبرستان',
+    title: 'طبرستان',
     latinTitle: 'TABARESTAN',
     category: 'freelance',
     shortDescription:

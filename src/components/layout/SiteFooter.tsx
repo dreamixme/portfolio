@@ -10,6 +10,7 @@ import Image from 'next/image';
 import { ScrollReveal } from '@/components/common/ScrollReveal';
 import { headerNavigation } from '@/config/navigation';
 import { siteConfig } from '@/config/site';
+import packageJson from '../../../package.json';
 
 import {
   FooterAvailability,
@@ -43,6 +44,7 @@ import {
   FooterResponseNote,
   FooterRoot,
 } from './SiteFooter.styled';
+import { Stack, Typography } from '@mui/material';
 
 export function SiteFooter() {
   return (
@@ -143,11 +145,11 @@ export function SiteFooter() {
 
         <FooterBottom>
           <FooterCopyright>
-            <span aria-hidden="true" />© {new Date().getFullYear()} Peyman Hosseini
+            <span aria-hidden="true" />© {new Date().getFullYear()} Peyman Hosseini -
+            <Typography component="p">{`v ${packageJson.version}`}</Typography>
           </FooterCopyright>
-          <FooterCodeLine dir="ltr">
-            {'<footer> Designed & built with care </footer>'}
-          </FooterCodeLine>
+
+          <FooterCodeLine dir="ltr"></FooterCodeLine>
           <FooterBackButton
             href="/#hero"
             variant="text"

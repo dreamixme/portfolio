@@ -397,6 +397,11 @@ export const FooterCopyright = styled('span')(({ theme }) => ({
   letterSpacing: '0.03em',
   direction: 'ltr',
 
+  '& > p': {
+    fontSize: '0.62rem',
+    fontFamily: 'ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace',
+  },
+
   '& > span': {
     width: 5,
     height: 5,
