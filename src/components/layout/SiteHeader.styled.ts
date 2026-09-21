@@ -4,6 +4,7 @@ import { styled } from '@mui/material/styles';
 import MuiButton from '@/components/Shared/MuiButton';
 import MuiIconButton from '@/components/Shared/MuiIconButton';
 import AppLink from '@/components/common/AppLink';
+import { theme } from '@/theme/theme';
 
 export const HeaderRoot = styled('header')(({ theme }) => ({
   position: 'sticky',
@@ -72,12 +73,13 @@ export const HeaderBrandCopy = styled('span')({
 
 export const HeaderBrandName = styled('span')({
   display: 'block',
-  color: 'transparent',
+  color: '#454545',
   fontWeight: 900,
   lineHeight: 1.4,
+  fontSize: theme.typography.pxToRem(20),
   letterSpacing: '0.08em',
-  background:
-    'linear-gradient(115deg, var(--portfolio-palette-primary-main), var(--portfolio-palette-secondary-main))',
+  // background:
+  //   'linear-gradient(115deg, var(--portfolio-palette-primary-main), var(--portfolio-palette-secondary-main))',
   backgroundClip: 'text',
   WebkitBackgroundClip: 'text',
 });
@@ -87,6 +89,7 @@ export const HeaderBrandRole = styled('span')(({ theme }) => ({
   color: theme.vars.palette.text.secondary,
   fontSize: theme.typography.caption.fontSize,
   lineHeight: theme.typography.caption.lineHeight,
+  letterSpacing: '1px',
 
   [theme.breakpoints.down('sm')]: {
     display: 'none',

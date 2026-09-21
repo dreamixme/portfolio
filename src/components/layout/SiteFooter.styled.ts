@@ -63,20 +63,36 @@ export const FooterContainer = styled(Container)(({ theme }) => ({
   },
 }));
 
+export const FooterBlocks = styled(Container)(({ theme }) => ({
+  display: 'flex',
+  direction: 'ltr',
+  flexDirection: 'row',
+  [theme.breakpoints.down('md')]: {
+    flexDirection: 'column',
+
+    '& > *': {
+      margin: '0 auto',
+    },
+    '& > *:first-child': {
+      marginBottom: '2rem',
+    },
+  },
+}));
+
 export const FooterHero = styled('div')(({ theme }) => ({
-  display: 'grid',
-  gridTemplateColumns: 'minmax(0, 1fr)',
+  display: 'flex',
+  width: '100%',
   alignItems: 'end',
   gap: theme.spacing(4),
-
   [theme.breakpoints.up('md')]: {
-    gridTemplateColumns: 'minmax(0, 1.3fr) minmax(280px, 0.7fr)',
     gap: theme.spacing(8),
   },
 }));
 
 export const FooterHeroCopy = styled('div')({
   minWidth: 0,
+  width: '100%',
+  justifyContent: 'center',
 });
 
 export const FooterAvailability = styled('span')(({ theme }) => ({
@@ -107,14 +123,15 @@ export const FooterAvailability = styled('span')(({ theme }) => ({
 }));
 
 export const FooterHeadline = styled('h2')(({ theme }) => ({
-  maxWidth: 970,
+  maxWidth: '100%',
   marginBlock: theme.spacing(2, 1.5),
   color: '#FFFFFF',
-  fontSize: 'clamp(2.5rem, 6.3vw, 6.5rem)',
+  fontSize: 'clamp(1.5rem, 2vw, 2.25rem)',
   fontWeight: 900,
   lineHeight: 1.18,
   letterSpacing: '-0.055em',
   textWrap: 'balance',
+  textAlign: 'center',
 }));
 
 export const FooterHeadlineAccent = styled('span')({
@@ -125,7 +142,8 @@ export const FooterHeadlineAccent = styled('span')({
 });
 
 export const FooterLead = styled('p')(({ theme }) => ({
-  maxWidth: 720,
+  maxWidth: '100%',
+  textAlign: 'center',
   margin: 0,
   color: 'rgb(255 255 255 / 58%)',
   fontSize: '0.96rem',
@@ -139,11 +157,11 @@ export const FooterLead = styled('p')(({ theme }) => ({
 export const FooterHeroAction = styled('div')(({ theme }) => ({
   display: 'flex',
   flexDirection: 'column',
-  alignItems: 'flex-start',
+  alignItems: 'center',
   gap: theme.spacing(1.25),
+  marginTop: theme.spacing(1),
 
   [theme.breakpoints.up('md')]: {
-    alignItems: 'flex-end',
     paddingBottom: theme.spacing(1),
   },
 }));
@@ -153,6 +171,7 @@ export const FooterPrimaryButton = styled(MuiButton)(({ theme }) => ({
   paddingInline: theme.spacing(3.2),
   borderRadius: 999,
   color: '#FFFFFF',
+  margin: '1rem auto 0 auto',
   background: 'linear-gradient(115deg, #0648FB, #6B5CF6 62%, #7C3AED)',
   boxShadow: '0 18px 44px rgb(6 72 251 / 34%)',
   transition: theme.transitions.create(['transform', 'box-shadow', 'filter'], {
@@ -163,15 +182,10 @@ export const FooterPrimaryButton = styled(MuiButton)(({ theme }) => ({
     background: 'linear-gradient(115deg, #1757FF, #796AF8 62%, #8B4EEA)',
     boxShadow: '0 24px 58px rgb(6 72 251 / 44%)',
     filter: 'saturate(1.12)',
-    transform: 'translateY(-4px)',
   },
 
   '& .MuiButton-endIcon': {
     transition: 'transform 220ms ease',
-  },
-
-  '&:hover .MuiButton-endIcon': {
-    transform: 'translate(-3px, -3px)',
   },
 }));
 
@@ -181,19 +195,19 @@ export const FooterResponseNote = styled('span')({
 });
 
 export const FooterGrid = styled('div')(({ theme }) => ({
-  marginTop: theme.spacing(9),
-  display: 'grid',
-  gridTemplateColumns: 'minmax(0, 1fr)',
+  // marginTop: theme.spacing(9),
+  display: 'flex',
+  // gridTemplateColumns: 'minmax(0, 1fr)',
   alignItems: 'start',
   gap: theme.spacing(5),
 
   [theme.breakpoints.up('sm')]: {
-    gridTemplateColumns: 'minmax(0, 1.2fr) minmax(180px, 0.8fr)',
+    //gridTemplateColumns: 'minmax(0, 1.2fr) minmax(180px, 0.8fr)',
   },
 
   [theme.breakpoints.up('lg')]: {
-    marginTop: theme.spacing(13),
-    gridTemplateColumns: 'minmax(300px, 1.2fr) minmax(220px, 0.7fr) minmax(330px, 1fr)',
+    // marginTop: theme.spacing(13),
+    // gridTemplateColumns: 'minmax(300px, 1.2fr) minmax(220px, 0.7fr) minmax(330px, 1fr)',
     gap: theme.spacing(9),
   },
 }));
@@ -205,7 +219,7 @@ export const FooterIdentity = styled('div')({
 export const FooterIdentityHeader = styled('div')(({ theme }) => ({
   display: 'flex',
   alignItems: 'center',
-  gap: theme.spacing(1.5),
+  gap: theme.spacing(0.5),
 
   '& > div > span': {
     display: 'block',
@@ -225,14 +239,15 @@ export const FooterLogo = styled('span')({
   flexShrink: 0,
   placeItems: 'center',
   borderRadius: 18,
-  background:
-    'radial-gradient(circle at 32% 22%, rgb(255 255 255 / 16%), transparent 38%), linear-gradient(145deg, rgb(6 72 251 / 28%), rgb(124 58 237 / 10%))',
-  boxShadow: '0 18px 46px rgb(6 72 251 / 20%)',
+
+  // background:
+  //   'radial-gradient(circle at 32% 22%, rgb(255 255 255 / 16%), transparent 38%), linear-gradient(145deg, rgb(6 72 251 / 28%), rgb(124 58 237 / 10%))',
+  // boxShadow: '0 18px 46px rgb(6 72 251 / 20%)',
 });
 
 export const FooterBrandName = styled('strong')({
   display: 'block',
-  color: '#FFFFFF',
+  color: '#999',
   fontSize: '1.08rem',
   fontWeight: 900,
   lineHeight: 1.5,
@@ -275,7 +290,6 @@ export const FooterColumnLabel = styled('span')({
 
 export const FooterLinks = styled('div')({
   display: 'flex',
-  flexDirection: 'column',
   alignItems: 'flex-start',
   gap: 4,
 });
@@ -289,6 +303,9 @@ export const FooterLinkButton = styled(MuiButton)(({ theme }) => ({
   color: 'rgb(255 255 255 / 64%)',
   fontSize: '0.82rem',
   transition: theme.transitions.create(['color', 'transform']),
+  marginLeft: '.5rem',
+  marginRight: '.5rem',
+  fontWeight: 'normal',
 
   '& small': {
     color: 'rgb(255 255 255 / 24%)',
@@ -370,8 +387,9 @@ export const FooterContactLink = styled('a')(({ theme }) => ({
 }));
 
 export const FooterBottom = styled('div')(({ theme }) => ({
-  marginTop: theme.spacing(9),
-  display: 'grid',
+  marginTop: theme.spacing(5),
+  display: 'flex',
+  flexDirection: 'column',
   gridTemplateColumns: 'minmax(0, 1fr) auto',
   alignItems: 'center',
   gap: theme.spacing(2),
@@ -382,7 +400,7 @@ export const FooterBottom = styled('div')(({ theme }) => ({
   backgroundSize: '100% 1px',
 
   [theme.breakpoints.up('md')]: {
-    marginTop: theme.spacing(12),
+    marginTop: theme.spacing(5),
     gridTemplateColumns: '1fr auto 1fr',
   },
 }));
@@ -428,6 +446,15 @@ export const FooterBackButton = styled(MuiButton)(({ theme }) => ({
   color: 'rgb(255 255 255 / 48%)',
   fontSize: '0.7rem',
   transition: theme.transitions.create(['color', 'transform']),
+  position: 'absolute',
+  left: '1rem',
+  bottom: '1rem',
+  textAlign: 'center',
+
+  [theme.breakpoints.down('sm')]: {
+    position: 'static',
+    marginTop: theme.spacing(0.125),
+  },
 
   '&:hover': {
     color: '#FFFFFF',

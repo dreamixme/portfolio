@@ -231,7 +231,6 @@ export const ProjectCard = styled(SpotlightBorder)(({ theme }) => ({
   }),
 
   '&:hover': {
-    transform: 'translateY(-7px)',
     borderColor: `rgba(${theme.vars.palette.primary.mainChannel} / 0.24)`,
     boxShadow: '0 34px 86px rgb(16 24 40 / 15%)',
   },

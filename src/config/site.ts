@@ -9,7 +9,7 @@ export const siteConfig = {
   locale: 'fa_IR',
   language: 'fa',
   contact: {
-    email: 'dreamixme@gmail.com',
+    email: 'info@peymanhosseini.ir',
     phone: {
       display: '+98 904 422 4818',
       value: '+989044224818',

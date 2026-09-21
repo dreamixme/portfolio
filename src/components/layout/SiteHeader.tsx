@@ -44,11 +44,11 @@ export function SiteHeader() {
         <HeaderInner>
           <HeaderBrandLink href="/#hero" aria-label="صفحه اصلی پیمان">
             <HeaderLogoFrame>
-              <Image src="/peyman-logo.svg" alt="" width={34} height={34} priority />
+              <Image src="/p-hosseini.svg" alt="" width={42} height={42} priority />
             </HeaderLogoFrame>
 
             <HeaderBrandCopy>
-              <HeaderBrandName>PEYMAN</HeaderBrandName>
+              <HeaderBrandName>پیمان حسینی</HeaderBrandName>
               <HeaderBrandRole>Software Engineer</HeaderBrandRole>
             </HeaderBrandCopy>
           </HeaderBrandLink>
