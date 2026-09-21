@@ -36,8 +36,8 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
-      { url: '/peyman-logo.svg', type: 'image/svg+xml' },
-      { url: '/icon-48x48.png', sizes: '48x48', type: 'image/png' },
+      { url: '/peyman-logo.svg?v=2', type: 'image/svg+xml' },
+      { url: '/icon-48x48.png?v=2', sizes: '48x48', type: 'image/png' },
     ],
   },
   openGraph: {
