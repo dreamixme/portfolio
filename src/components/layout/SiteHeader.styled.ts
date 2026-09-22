@@ -62,8 +62,7 @@ export const HeaderLogoFrame = styled('span')(({ theme }) => ({
   transition: theme.transitions.create(['transform', 'box-shadow']),
 
   '&:hover': {
-    transform: 'translateY(-2px) rotate(-2deg)',
-    boxShadow: '0 14px 34px rgb(6 72 251 / 20%)',
+    opacity: 0.75,
   },
 }));
 
@@ -127,8 +126,8 @@ export const HeaderActions = styled('div')(({ theme }) => ({
 }));
 
 export const ThemeToggleButton = styled(MuiIconButton)(({ theme }) => ({
-  width: 42,
-  height: 42,
+  width: 36,
+  height: 36,
   border: `1px solid ${theme.vars.palette.divider}`,
   backgroundColor: `rgba(${theme.vars.palette.primary.mainChannel} / 0.06)`,
   transition: theme.transitions.create(['color', 'background-color', 'transform']),

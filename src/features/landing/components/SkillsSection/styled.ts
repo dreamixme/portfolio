@@ -136,6 +136,8 @@ export const SkillsDescription = styled(Typography)(({ theme }) => ({
 
 export const SkillsGrid = styled('div')(({ theme }) => ({
   display: 'grid',
+  maxWidth: 'calc(100% - 200px)',
+  margin: '0 auto',
   gridTemplateColumns: 'minmax(0, 1fr)',
   gap: theme.spacing(2.5),
 

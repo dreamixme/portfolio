@@ -72,7 +72,11 @@ export function SiteHeader() {
               label={isDark ? 'فعال‌کردن تم روشن' : 'فعال‌کردن تم تیره'}
               onClick={toggleMode}
             >
-              {isDark ? <LightModeRoundedIcon /> : <DarkModeRoundedIcon />}
+              {isDark ? (
+                <LightModeRoundedIcon fontSize="small" />
+              ) : (
+                <DarkModeRoundedIcon fontSize="small" />
+              )}
             </ThemeToggleButton>
 
             <HeaderCallToAction href="/#contact" text="شروع همکاری" size="small" />

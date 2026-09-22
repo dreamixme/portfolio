@@ -47,6 +47,26 @@ export const portfolioProjects: PortfolioProject[] = [
     isDraft: true,
   },
   {
+    slug: 'ewano-credit-landing',
+    title: 'لندینگ اعتبار عمومی',
+    latinTitle: 'EWANO Landing',
+    category: 'company',
+    shortDescription:
+      'یک تجربه‌ی وب اپلیکیشن برای محصول ایوانو؛ آماده برای تکمیل با جزئیات نقش، چالش‌ها و خروجی نهایی.',
+    overview: [
+      'این صفحه فعلاً ساختار اولیه‌ی مطالعه‌ی موردی پروژه را نمایش می‌دهد. شرح دقیق مسئله، مسئولیت‌ها، تصمیم‌های فنی و نتیجه‌ها پس از دریافت اطلاعات کامل پروژه جایگزین می‌شود.',
+    ],
+    companyOrClient: 'پروژه‌ی شرکتی',
+    role: 'Frontend Developer',
+    liveUrl: 'https://ewano.app/public-credit/',
+    stack: ['NextJs', 'TypeScript', 'PWA'],
+    services: ['اعتبار اوانو'],
+    tone: 'primary',
+    visualVariant: 'dashboard',
+    featured: true,
+    isDraft: true,
+  },
+  {
     slug: 'my-tci',
     title: 'مخابرات من',
     latinTitle: 'MY TCI',

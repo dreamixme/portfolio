@@ -197,8 +197,8 @@ export const ProjectRail = styled('ul')(({ theme }) => ({
 }));
 
 export const ProjectRailItem = styled('li')(({ theme }) => ({
-  width: 'min(510px, 78vw)',
-  minWidth: 'min(510px, 78vw)',
+  width: 'min(400px, 70vw)',
+  minWidth: 'min(400px, 70vw)',
   listStyle: 'none',
   scrollSnapAlign: 'center',
   animation: `${railEnter} 520ms cubic-bezier(0.16, 1, 0.3, 1) both`,
@@ -207,7 +207,7 @@ export const ProjectRailItem = styled('li')(({ theme }) => ({
   '&:nth-of-type(3)': { animationDelay: '120ms' },
 
   [theme.breakpoints.down('sm')]: {
-    width: '86vw',
+    width: '80vw',
     minWidth: '86vw',
     maxWidth: 360,
   },
